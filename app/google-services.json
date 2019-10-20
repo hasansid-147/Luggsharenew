@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "367978850138",
+    "firebase_url": "https://luggshare-238507.firebaseio.com",
+    "project_id": "luggshare-238507",
+    "storage_bucket": "luggshare-238507.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367978850138:android:758cd0d2a6bc5e02ddb563",
+        "android_client_info": {
+          "package_name": "com.android.luggshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367978850138-qkv1e5e4cps060k9352rg3htlg08p0dr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.luggshare",
+            "certificate_hash": "9fba5a1b8effaf29946f875a74ef968d2a2f9608"
+          }
+        },
+        {
+          "client_id": "367978850138-vr0mqooum3hdttti01m07qk12qrc2h78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1O6JBswprrUEFbXHiil_PZlNrR8mGaLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367978850138-vr0mqooum3hdttti01m07qk12qrc2h78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

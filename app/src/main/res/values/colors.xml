@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#A9A9A9</color>
+
+
+    <color name="black">#000000</color>
+    <color name="grey">#d3d3d3</color>
+    <color name="pink">#f80c4e</color>
+    <color name="white">#FFFFFF</color>
+    <color name="whiteSmoke">#F5F5F5</color>
+
+    <color name="colorPrimary">#51d8c7</color>
+    <color name="colorPrimaryDark">#51d8c7</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorBackground">#413e4f</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextHint">#51d8c7</color>
+
+    <!--taken from zepline-->
+    <color name="blackApp">#212121</color>
+
+
+    <color name="text_hint_color">#9e9e9e</color>
+    <color name="text_hint_background_color">#f0f2f5</color>
+    <color name="text_color_black">#212121</color>
+    <color name="text_color_background">#e5e5e5</color>
+    <color name="underline_color">#dddddd</color>
+    <color name="focus_color">#e5e5e5</color>
+    <color name="unfocus_color">#f0f2f5</color>
+    <color name="polyline_dark">#f80c4e</color>
+    <color name="polyline_light">#f7c8d5</color>
+    <color name="bg_color">#fff</color>
+
+
+    <color name="whiteColor">@android:color/white</color>
+    <color name="hintColor">#9e9e9e</color>
+    <color name="transparent">#00000000</color>
+    <color name="dividedColor">#dddddd</color>
+    <color name="titleLight">#757575</color>
+    <color name="progress_bar_color">#55d886</color>
+    <color name="red">#d30100</color>
+    <color name="blue">#0388B6</color>
+    <color name="brown">#492c1b</color>
+    <color name="bg_blur">#99000000</color>
+    <color name="gray">#9e9e9e</color>
+
+</resources>

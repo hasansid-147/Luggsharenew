@@ -1,0 +1,234 @@
+<resources>
+    <string name="app_name">LuggShareNew</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="text_accounts">All Accounts</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_login">Login</string>
+    <string name="text_register">Register</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_age">Enter Age</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="success_message">Registration Successful</string>
+    <string name="text_not_member">No account yet? Create one</string>
+    <string name="text_already_member">Already a member? Login</string>
+    <string name="error_email_exists">Email Already Exists</string>
+    <string name="error_password_match">Password Does Not Matches</string>
+    <string name="error_valid_email_password">Wrong Email or Password</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_hello">Hello,</string>
+    <string name="text_title">Android Tutorials Hub</string>
+    <string name="email">Email Id</string>
+    <string name="passowrd">Password</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="hide_pwd">Hide Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="registered_emailid">Please enter your Registered Email Id or Phonenumber below:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+    <string name="title_activity_sender_req">SenderReq</string>
+
+    <string name="enter_no">Enter your mobile number</string>
+    <string name="phone_hint">Enter your mobile number</string>
+    <string name="get_moving">Get moving with CabSnapper</string>
+    <string name="transition_arrow">transition_arrow</string>
+    <string name="transition_tvMoving">transition_tvMoving</string>
+    <string name="transition_ivFlag">transition_ivFlag</string>
+    <string name="transition_tvCode">transition_tvCode</string>
+    <string name="transition_tvPhoneNo">transition_tvPhoneNo</string>
+    <string name="transition_llPhone">transition_llPhone</string>
+    <string name="welcome_back">Welcome back, sign in to continue</string>
+    <string name="enter_email">Enter the email address you used to register</string>
+    <string name="enter_phone">Enter the phone number you used to register</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="country_code">+44</string>
+    <string name="select_country">Select Country</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="destination_location">Destination Address</string>
+    <string name="set_location_on_map">Select on Map</string>
+
+    <string name="where_to">Where to?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--Error Messages-->
+    <string name="message_server_error">Unable to connect to the server,are you connected to the internet?</string>
+    <string name="no_email_client">No email client installed</string>
+    <string name="no_browser_client">No browser installed</string>
+    <string name="err_password">Password should contain at least 8 characters.</string>
+    <string name="err_full_name">This field should contain at least 3 characters.</string>
+    <string name="err_phone">This field should contain at least 11 characters.</string>
+    <string name="err_phone_invalid">This phone number is invalid</string>
+    <string name="err_empty_field">This field cannot be empty.</string>
+    <string name="err_passwords_match">Passwords does not match</string>
+    <string name="err_invalid_email">Invalid email address</string>
+
+
+    <!--on wrong password through server validation-->
+    <string name="err_passwords_inc">The password you\'ve entered is incorrect.</string>
+
+
+    <!--Keys Use For Passwords-->
+    <string name="valPassword">passwords</string>
+    <string name="valLoginPassword">loginPasswords</string>
+
+    <string name="valFullName">fullname</string>
+    <string name="valPhoneNumbers">phone</string>
+    <string name="phone_number">123456678</string>
+    <string name="i_will_use">I\'ll use CabSnapper for both personal and work rides</string>
+    <string name="i_forgot">I forgot my password</string>
+    <string name="create_acc">Create an Account</string>
+    <string name="email_sent">Email Sent</string>
+    <string name="you_will_receive_email">You\'ll receive an email from CabSnapper with a link to reset your password</string>
+    <string name="ok">OK</string>
+    <string name="resend">Resend</string>
+    <string name="choose_an_account">Choose an account</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="connect_social">Or connect with social</string>
+    <string name="err_checkbox">Check the checkbox</string>
+    <string name="err_pin">Enter Valid Pin Code.</string>
+    <string name="favorites">Favorites</string>
+    <string name="home">Home</string>
+    <string name="work">Work</string>
+    <string name="delete">Delete</string>
+    <string name="events">Events</string>
+    <string name="calendar_shortcuts">Calendar Shortcuts</string>
+    <string name="take_a_screenshot">"Take a Shortcut to your next Event</string>
+    <string name="profiles">Profiles</string>
+    <string name="personal">Personal</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="want_more">Want More CabSnapper for less?</string>
+    <string name="give_friends_free">Give friends free ride credit to try CapSnapper. You’ll get $30 off each of your next 2 rides when they starting riding.</string>
+    <string name="how_invites">How Invites Work</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="share_invite_code">Share Your Invites Code</string>
+    <string name="cash">Cash</string>
+    <string name="copany_account">Company Account</string>
+    <string name="add_payment">Add Payment Method</string>
+    <string name="promotions">Promotions</string>
+    <string name="payment_reward">Payment Reward</string>
+    <string name="add_promo">Add Promo/Gift Code</string>
+    <string name="account_customer">Account Customer</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="on_trip">On Trip</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="ver_code">Verification Code</string>
+    <string name="user_name">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="credit_or">Credit or Debit Card</string>
+    <string name="please_credit">Please Enter Your Credit Card Details</string>
+    <string name="hint_card">Card  Number</string>
+    <string name="hint_cvv">CVV</string>
+    <string name="hint_expiry_date">Expiration Date</string>
+    <string name="hint_expiry_year">Expiration Year</string>
+    <string name="hint_expiry_month">Expiration Month</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="enter_promo">Enter a promo/gift code</string>
+    <string name="help">Help</string>
+    <string name="receipt">Receipt</string>
+    <string name="base_fare">Base Fare</string>
+    <string name="distance">Distance</string>
+    <string name="time">Time</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Total</string>
+    <string name="drive_with">Drive With CabSnapper</string>
+    <string name="legal">Legal</string>
+
+
+    <!--Side menu options-->
+    <string name="payment">Payment</string>
+    <string name="your_trip">Your Trip</string>
+    <string name="free_rides">Free Rides</string>
+    <string name="settings">Settings</string>
+
+    <string name="wait_message">We are extremely busy around your location.We expect a 30 min wait.Why not put your self on the waitlist.We will notify you when a car becomes available</string>
+
+    <string name="contact">Contact</string>
+    <string name="emergency">Emergency</string>
+    <string name="your_current_trip">Your Current Trip</string>
+    <string name="current_location">Your Current Location</string>
+    <string name="change">Change</string>
+    <string name="share_status">Share Status</string>
+    <string name="american_express">American Express</string>
+    <string name="business">Business</string>
+    <string name="add_expense">Add expense code</string>
+    <string name="contact_driver">Contact Driver</string>
+    <string name="you_may_be_partially">You may be partially charged for this ride since it’s already in progress"</string>
+    <string name="emergency_assistance">Emergency Assistance</string>
+    <string name="call">Call</string>
+    <string name="no">NO</string>
+    <string name="yes_cancel">Yes, Cancel</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="call_police">Call Police (100)</string>
+    <string name="driver">Driver</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="license">License Plate</string>
+    <string name="company_acc">Company Account</string>
+    <string name="make_payment">Make Payment</string>
+    <string name="add_card">Add Card</string>
+    <string name="verfiy_code">Verfiy Code</string>
+    <string name="com_facebook_loading">Loading</string>
+    <string name="connection_lost">Internet Not Found</string>
+
+    <string name="facebook_app_id">751557128367589</string>
+    <string name="fb_login_protocol_scheme">fb751557128367589</string>
+
+    <string name="google_map_key">AIzaSyAxolGbO__SpLg3P4r3OaKAYgt2Xs6v89Q</string>
+    <!--<string name="google_map_key">AIzaSyDXeSFBHghHd4A8T4GML-7hyOWokC38PR8</string>-->
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Profile</item>
+        <item>Security Check</item>
+        <item>My Requests</item>
+        <item>My Offers</item>
+        <item>Payment</item>
+    </string-array>
+
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <string name="email_pattern_validation">^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="open">Open</string>
+    <string name="close">close</string>
+
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context="com.android.luggshare.activity.DashboardActivity">
+
+    <TextView
+        android:id="@+id/txtMainHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Dashboard"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        />
+
+
+    <Button
+        android:id="@+id/btnSender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMainHeading"
+        android:text="Sender"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:background="@color/colorTextHint"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/btnTraveler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSender"
+        android:text="Traveler"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:background="@color/colorTextHint"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/btnPurchaser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnTraveler"
+        android:text="Purchaser"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:background="@color/colorTextHint"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>

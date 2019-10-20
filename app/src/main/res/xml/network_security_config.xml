@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="true">tnssuet.com.192-185-7-212.hgws27.hgwin.temp.domains</domain>
+  </domain-config>
+</network-security-config>
