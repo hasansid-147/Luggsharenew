@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMainHeading"
+        android:divider="#b5b5b5"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" />
+
+    <TextView
+        android:id="@+id/txtNoDataFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Request Found"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"
+        />
+
+
+    <Button
+        android:id="@+id/btnPostData"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:visibility="visible" />
+
+
+
+</RelativeLayout>

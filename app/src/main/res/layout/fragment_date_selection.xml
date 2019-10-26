@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/btnback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/tvTopHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Departure Date"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp" />
+
+
+
+        <ImageView
+            android:id="@+id/imgHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTopHeading"
+            android:src="@drawable/icon_clock"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/imgHeading"
+            android:layout_height="wrap_content"
+            android:text="When will you travel?"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/llTravelDates"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtHeading"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/txtDepDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departure Date:"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvDepDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Date"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/txtDepDate"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txtDepTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departure Time:"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvDepTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Time"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/txtDepTime"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txtArrDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arrival Date:"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvDepDate"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvArrDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Date"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/txtArrDate"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txtArrTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expected Arrival Time:"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tvDepTime"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvArrTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Time"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/txtArrTime"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/txtExpectedCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expected Bag Capacity:"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tvArrDate"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="14sp"
+                />
+
+            <EditText
+                android:id="@+id/edtExpCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtExpectedCapacity"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="@dimen/_5sdp"
+                android:maxLength="5"
+                android:maxLines="1"
+                android:hint="Expected Capacity"
+                android:textColorHint="@color/gray"
+                />
+
+            <TextView
+                android:id="@+id/txtItemWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KG"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/edtExpCapacity"
+                android:layout_below="@+id/txtExpectedCapacity"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:textSize="16sp"
+                />
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btnSendPackage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:text="Continue"
+        android:textColor="@color/white"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

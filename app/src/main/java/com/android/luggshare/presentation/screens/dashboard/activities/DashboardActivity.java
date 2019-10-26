@@ -66,10 +66,10 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                     case R.id.nav_home:
                         replaceChildFragmentWithDelay(R.id.content_area, new HomeFragment(), true, false, null, true);
                         break;
-                    case R.id.nav_gallery:
+                    case R.id.nav_profile:
                         replaceChildFragmentWithDelay(R.id.content_area, new SenderRequestFragment(), true, false, null, true);
                         break;
-                    case R.id.nav_send:
+                    case R.id.nav_security:
                         replaceChildFragmentWithDelay(R.id.content_area, new HomeFragment(), true, false, null, true);
                         break;
                     default:

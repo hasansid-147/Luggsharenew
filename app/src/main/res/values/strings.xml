@@ -216,11 +216,24 @@
         <item>Payment</item>
     </string-array>
 
-    <string name="openDrawer">open_drawer</string>
+    <!-- region navigation drawer items-->
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_security">Security Check</string>
+    <string name="nav_request">My Requests</string>
+    <string name="nav_offers">My Offers</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_payment">Payment</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_logout">logout</string>
+    <!-- endregion navigation drawer items-->
+
+    <string name="openDrawer">Home</string>
     <string name="closeDrawer">close_drawer</string>
 
     <string name="email_pattern_validation">^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$</string>
     <string name="title_activity_dashboard">Dashboard</string>
+    <string name="error_something_went_wrong">Something went wrong.</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>

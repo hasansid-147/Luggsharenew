@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.android.luggshare.R;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestFragment;
+import com.android.luggshare.presentation.screens.traveler.fragments.TravelerSearchFragment;
 
 import butterknife.OnClick;
 
@@ -31,6 +32,11 @@ public class HomeFragment extends CoreFragment {
     @OnClick(R.id.btnSender)
     public void senderButtonClicked() {
         replaceChildFragmentWithDelay(new SenderRequestFragment(), true, true, null, false);
+    }
+
+    @OnClick(R.id.btnTraveler)
+    public void travelerButtonClicked() {
+        replaceChildFragmentWithDelay(new TravelerSearchFragment(), true, true, null, false);
     }
 
 
