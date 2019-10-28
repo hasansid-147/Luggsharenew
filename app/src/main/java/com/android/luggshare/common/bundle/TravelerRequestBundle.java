@@ -1,5 +1,6 @@
 package com.android.luggshare.common.bundle;
 
+import com.android.luggshare.business.models.travelerlisting.TravListingResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -27,7 +28,7 @@ public class TravelerRequestBundle implements Serializable {
     private String arrvToCity;
     @SerializedName("bag_capacity")
     @Expose
-    private Integer bagCapacity;
+    private Double bagCapacity;
     @SerializedName("pref_item1")
     @Expose
     private String prefItem1;
@@ -36,7 +37,7 @@ public class TravelerRequestBundle implements Serializable {
     private String prefItem2;
     @SerializedName("pref_item3")
     @Expose
-    private Object prefItem3;
+    private String prefItem3;
 
     @SerializedName("dep_time")
     @Expose
@@ -44,6 +45,10 @@ public class TravelerRequestBundle implements Serializable {
     @SerializedName("exp_arrivaltime")
     @Expose
     private String expArrivaltime;
+
+    @SerializedName("trav_response_obj")
+    @Expose
+    private TravListingResponse travListRespObj;
 
     public Integer getUid() {
         return uid;
@@ -93,11 +98,11 @@ public class TravelerRequestBundle implements Serializable {
         this.arrvToCity = arrvToCity;
     }
 
-    public Integer getBagCapacity() {
+    public Double getBagCapacity() {
         return bagCapacity;
     }
 
-    public void setBagCapacity(Integer bagCapacity) {
+    public void setBagCapacity(Double bagCapacity) {
         this.bagCapacity = bagCapacity;
     }
 
@@ -117,11 +122,11 @@ public class TravelerRequestBundle implements Serializable {
         this.prefItem2 = prefItem2;
     }
 
-    public Object getPrefItem3() {
+    public String getPrefItem3() {
         return prefItem3;
     }
 
-    public void setPrefItem3(Object prefItem3) {
+    public void setPrefItem3(String prefItem3) {
         this.prefItem3 = prefItem3;
     }
 
@@ -140,6 +145,12 @@ public class TravelerRequestBundle implements Serializable {
     public void setExpArrivaltime(String expArrivaltime) {
         this.expArrivaltime = expArrivaltime;
     }
+
+    public TravListingResponse getTravListRespObj() {
+        return travListRespObj;
+    }
+
+    public void setTravListRespObj(TravListingResponse travListRespObj) {
+        this.travListRespObj = travListRespObj;
+    }
 }
-
-

@@ -124,7 +124,7 @@ public class DateSelectionFragment extends CoreFragment implements onPickDateTim
                 travelerRequestBundle.setExpArrivaltime(tvArrDate.getText().toString() + " " + tvArrTime.getText().toString());
 
                 if (!edtExpCapacity.getText().toString().isEmpty())
-                    travelerRequestBundle.setBagCapacity(Integer.parseInt(edtExpCapacity.getText().toString()));
+                    travelerRequestBundle.setBagCapacity(Double.parseDouble(edtExpCapacity.getText().toString()));
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(BundleKeys.TRAVELER_REQUEST_BUNDLE, travelerRequestBundle);

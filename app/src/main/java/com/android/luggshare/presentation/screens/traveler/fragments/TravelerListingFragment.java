@@ -135,6 +135,15 @@ public class TravelerListingFragment extends CoreFragment {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                            TravListingResponse travelerObj = (TravListingResponse)parent.getAdapter().getItem(position);
+
+                            travelerRequestBundle.setTravListRespObj(travelerObj);
+
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable(BundleKeys.TRAVELER_REQUEST_BUNDLE, travelerRequestBundle);
+
+                            replaceChildFragmentWithDelay(new TravelerListingDetailFragment(), true, false, bundle, true);
+
                             /*TravListingResponse travelerObj = (TravListingResponse)parent.getAdapter().getItem(position);
                             Intent intTraveler = new Intent(getApplicationContext(), Traveler_Listing_details.class);
                             intTraveler.putExtra(KEY_TRAVELER_OBJECT, travelerObj);
@@ -207,10 +216,10 @@ public class TravelerListingFragment extends CoreFragment {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
-                /*Intent intTraveler = new Intent(getApplicationContext(), NavigationDrawerActivity.class);
-                startActivity(intTraveler);*/
+
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    replaceChildFragmentWithDelay(new TravelerListingFragment(), true, false, null, false);
                 }
 
             }
