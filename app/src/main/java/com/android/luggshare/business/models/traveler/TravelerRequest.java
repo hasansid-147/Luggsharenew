@@ -25,7 +25,7 @@ public class TravelerRequest {
     private String arrvToCity;
     @SerializedName("bag_capacity")
     @Expose
-    private Integer bagCapacity;
+    private Double bagCapacity;
     @SerializedName("pref_item1")
     @Expose
     private String prefItem1;
@@ -90,11 +90,11 @@ public class TravelerRequest {
         this.arrvToCity = arrvToCity;
     }
 
-    public Integer getBagCapacity() {
+    public Double getBagCapacity() {
         return bagCapacity;
     }
 
-    public void setBagCapacity(Integer bagCapacity) {
+    public void setBagCapacity(Double bagCapacity) {
         this.bagCapacity = bagCapacity;
     }
 

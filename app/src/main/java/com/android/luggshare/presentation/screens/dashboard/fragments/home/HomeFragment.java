@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.android.luggshare.R;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.purchaser.fragments.PurchaserFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestFragment;
 import com.android.luggshare.presentation.screens.traveler.fragments.TravelerSearchFragment;
 
@@ -37,6 +38,11 @@ public class HomeFragment extends CoreFragment {
     @OnClick(R.id.btnTraveler)
     public void travelerButtonClicked() {
         replaceChildFragmentWithDelay(new TravelerSearchFragment(), true, true, null, false);
+    }
+
+    @OnClick(R.id.btnPurchaser)
+    public void purchaserButtonClicked() {
+        replaceChildFragmentWithDelay(new PurchaserFragment(), true, true, null, false);
     }
 
 

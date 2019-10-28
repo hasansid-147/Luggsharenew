@@ -282,8 +282,7 @@ public class PricingFragment extends CoreFragment {
 
                     replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
                 } else {
-                    //Toast.makeText(PricingActivity.this, "Fail", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getContext(), "Some error occurred.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
                     Log.e("Error", response.errorBody().toString());
                 }
 
