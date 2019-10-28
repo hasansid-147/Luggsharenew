@@ -40,8 +40,6 @@ import butterknife.OnClick;
 
 public class PurchaserDeliveryFragment extends CoreFragment implements onPickDateTimeListener {
 
-    PurchaserRequestBundle purchaserRequestBundle;
-
     @BindView(R.id.edtDeliverFrom)
     EditText edtDeliverFrom;
 
@@ -55,6 +53,7 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
     Button btnSendPackage;
 
     DateTimePicker startDateTimeObj;
+    PurchaserRequestBundle purchaserRequestBundle;
 
     String purch_url,purch_name,purch_description,purch_price,purch_quantity,purch_img,purch_imgext;
 
@@ -84,7 +83,6 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
         return rootview;
     }
 
-
     @OnClick({R.id.tvDeliverDate, R.id.btnSendPackage})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -110,6 +108,17 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
                     String splitFromLoc[] = edtDeliverFrom.getText().toString().split(",");
                     String splitToLoc[] = edtDeliverTo.getText().toString().split(",");
 
+                    purchaserRequestBundle.setFrom_city(splitFromLoc[0]);
+                    purchaserRequestBundle.setFrom_country(splitFromLoc[1]);
+                    purchaserRequestBundle.setTo_country(splitToLoc[1]);
+                    purchaserRequestBundle.setTo_city(splitToLoc[0]);
+                    purchaserRequestBundle.setDel_date(tvDeliverDate.getText().toString());
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(BundleKeys.PURCHASER_REQUEST_BUNDLE, purchaserRequestBundle);
+
+                    replaceChildFragmentWithDelay(new PurchaserPricingFragment(), true, false, bundle, true);
+
                     /*Intent intentpricing = new Intent(getApplicationContext(), PurchaserPricingActivity.class);
 
                     intentpricing.putExtra(KEY_PURCHASER_URL,purch_url );
@@ -124,6 +133,7 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
                     intentpricing.putExtra(KEY_PURCH_TOCOUNTRY, splitToLoc[1]);
                     intentpricing.putExtra(KEY_PURCH_TOCITY, splitToLoc[0]);
                     intentpricing.putExtra(KEY_PURCH_DELDATE, tvDeliverDate.getText().toString());
+
 
                     startActivity(intentpricing);*/
 
@@ -159,4 +169,5 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
     public void onTimeSelect(String time, String formatedTime, String delegate) {
 
     }
+
 }

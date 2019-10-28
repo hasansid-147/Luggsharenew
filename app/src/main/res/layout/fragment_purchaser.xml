@@ -53,6 +53,7 @@
             android:isScrollContainer="false">
 
             <LinearLayout
+                android:id="@+id/mainContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -170,22 +171,26 @@
 
                 </RelativeLayout>
 
+                <Button
+                    android:id="@+id/btnSendPackage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/colorPrimary"
+                    android:text="Next"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
+
 
             </LinearLayout>
+
+
+
         </ScrollView>
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnSendPackage"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimary"
-        android:text="Next"
-        android:textColor="@color/white"
-        android:visibility="visible" />
 
 
 </RelativeLayout>

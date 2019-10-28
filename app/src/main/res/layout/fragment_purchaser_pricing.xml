@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/RelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/btnback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/tvTopHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Pricing 3/3"
+            android:textColor="@color/colorGrey"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTopHeading"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/llDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHeading"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtPriceBreakDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Price Summary"
+                android:textColor="@color/colorGrey"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPriceBreakDown"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Item Price:"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tvItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPriceBreakDown"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_toRightOf="@+id/txtItemPrice"
+                android:text=" "
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtItemPricescurr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPriceBreakDown"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="@dimen/_15sdp"
+
+                android:layout_toRightOf="@+id/tvItemPrice"
+                android:text="PKR"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/btnedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtItemPrice"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_toRightOf="@+id/txtServiceChargescurr"
+                android:src="@drawable/ic_edit" />
+
+            <TextView
+                android:id="@+id/txtServiceCharges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtItemPrice"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Delivery Charges:"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tvServiceCharges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtItemPrice"
+                android:layout_marginStart="@dimen/_9sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_toRightOf="@+id/txtServiceCharges"
+                android:text="  "
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/txtServiceChargescurr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtItemPrice"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="PKR"
+                android:layout_toRightOf="@+id/tvServiceCharges"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp" />
+
+
+            <!--<TextView
+                android:id="@+id/txtItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item to Send: "
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sample Item"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/txtItemName"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Description: "
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtItemName"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvItemDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sample Desc"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/txtItemDesc"
+                android:layout_below="@+id/txtItemName"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemFixIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Fix In: "
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtItemDesc"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvItemFixIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bag"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/txtItemFixIn"
+                android:layout_below="@+id/txtItemDesc"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/txtItemWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Weight: "
+                android:textColor="@color/colorBlack"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/txtItemFixIn"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/tvItemWEight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4 KG"
+                android:textColor="@color/colorBlack"
+                android:layout_toRightOf="@+id/txtItemWeight"
+                android:layout_below="@+id/txtItemFixIn"
+                android:layout_marginTop="@dimen/x15"
+                android:textSize="14sp"
+                />-->
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/RelLayout"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edtDeliverychrges"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight=".70"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint=" "
+            android:visibility="invisible"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+        <Button
+            android:id="@+id/edtOk"
+            android:layout_width="0dp"
+            android:layout_weight=".30"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:background="@color/colorPrimary"
+            android:text="OK"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSendPackage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:text="POST"
+        android:textColor="@color/white"
+        android:visibility="visible" />
+
+</RelativeLayout>
