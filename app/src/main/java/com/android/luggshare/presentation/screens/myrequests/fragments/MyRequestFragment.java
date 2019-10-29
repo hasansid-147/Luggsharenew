@@ -18,6 +18,9 @@ import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.models.getsenderlist.RequestSenderList;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.RequestTypeBundle;
+import com.android.luggshare.common.keys.AppConstants;
+import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestSenderAdapter;
@@ -42,6 +45,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
     RecyclerView recyclerView;
     private MyRequestSenderAdapter mAdapter;
     TextView tvSender, tvTraveler, tvPurchaser;
+    RequestTypeBundle requestTypeBundle;
 
     @Override
     protected int getLayoutResourceId() {
@@ -52,6 +56,8 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
+
+        requestTypeBundle = new RequestTypeBundle();
 
         tvSender = (TextView) rootview.findViewById(R.id.tvSender);
         tvPurchaser = (TextView) rootview.findViewById(R.id.tvPurchaser);
@@ -125,9 +131,18 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
             public void onClick(View view, int position) {
                 try {
 
+                    ListResponse respObj = arrayList.get(position);
 
-                    ListResponse movie = arrayList.get(position);
-                    Toast.makeText(getContext(), movie.getName() + " is selected!", Toast.LENGTH_SHORT).show();
+                    requestTypeBundle.setRequestType(respObj.getReqType());
+                    requestTypeBundle.setRequestObj(respObj);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, requestTypeBundle);
+
+                    replaceChildFragmentWithDelay(new MyRequestDetailsFragment(), true, false, bundle, true);
+
+
+                    Toast.makeText(getContext(), respObj.getName() + " is selected!", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
