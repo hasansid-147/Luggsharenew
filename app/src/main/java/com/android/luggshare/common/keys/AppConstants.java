@@ -91,6 +91,7 @@ public class AppConstants {
     public static final String KEY_NOTES = "notes";
     public static final String KEY_SENDER = "sender";
     public static final String KEY_TRAVELER = "traveler";
+    public static final String KEY_PURCHASER = "purchaser";
 
     public static final String KEY_SENDER_NAME = "name";
     public static final String KEY_SENDER_DESC = "description";
@@ -117,7 +118,6 @@ public class AppConstants {
     public static final String KEY_TRAVELER_OBJECT = "traveler_object";
 
 
-
     public static final String KEY_PURCHASER_URL = "url";
     public static final String KEY_PURCHASER_NAME = "prod_name";
     public static final String KEY_PURCHASER_DESC = "prod_detail";
@@ -128,18 +128,17 @@ public class AppConstants {
     public static final String KEY_PURCH_FROMCOUNTRY = "from_country";
     public static final String KEY_PURCH_FROMCITY = "from_city";
     public static final String KEY_PURCH_TOCOUNTRY = "to_country";
-    public static final String KEY_PURCH_TOCITY= "to_city";
+    public static final String KEY_PURCH_TOCITY = "to_city";
     public static final String KEY_PURCH_DELDATE = "del_date";
     public static final String KEY_DELVCHARGES_EDT = "edt_delvcharges";
 
-    public static final String KEY_USER_FNAME ="fname";
-    public static final String KEY_USER_LNAME ="fname";
-    public static final String KEY_USER_EMAIL ="email";
-    public static final String KEY_USER_PASS ="pass";
+    public static final String KEY_USER_FNAME = "fname";
+    public static final String KEY_USER_LNAME = "fname";
+    public static final String KEY_USER_EMAIL = "email";
+    public static final String KEY_USER_PASS = "pass";
     public static final String KEY_USER_COUNTRY = "country";
     public static final String KEY_USER_CITY = "city";
-    public static final String KEY_USER_PROFIMAGE="user_image";
-
+    public static final String KEY_USER_PROFIMAGE = "user_image";
 
     public static final String BASE_IMG_PATH = "http://tnssuet.com.192-185-7-212.hgws27.hgwin.temp.domains/images/";
 

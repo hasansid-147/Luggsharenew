@@ -8,6 +8,8 @@ import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryRe
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryResponse;
 import com.android.luggshare.business.models.registrationservice.SignUpResponse;
 import com.android.luggshare.business.models.sender.SenderRequest;
+import com.android.luggshare.business.models.senderdetails.SenderDetailsRequest;
+import com.android.luggshare.business.models.senderdetails.SenderDetailsResponse;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryRequest;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryResponse;
 import com.android.luggshare.business.models.traveler.TravelerRequest;
@@ -50,6 +52,9 @@ public interface ApiInterface {
 
     @POST("dashboard/get")
     Call<ArrayList<ListResponse>> fetchListData(@Body RequestSenderList body);
+
+    @POST("dashboard/senderdetail")
+    Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);
 
     @POST("Summary/sender")
     Call<SenderSummaryResponse> getPricing(@Body SenderSummaryRequest body);
