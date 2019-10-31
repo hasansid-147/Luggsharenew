@@ -14,6 +14,8 @@ import com.android.luggshare.business.models.sendersummary.SenderSummaryRequest;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryResponse;
 import com.android.luggshare.business.models.traveler.TravelerRequest;
 import com.android.luggshare.business.models.traveler.TravelerResponse;
+import com.android.luggshare.business.models.travelerdetails.TravelerDetailsRequest;
+import com.android.luggshare.business.models.travelerdetails.TravelerDetailsResponse;
 import com.android.luggshare.business.models.travelerlisting.TravListingRequest;
 import com.android.luggshare.business.models.travelerlisting.TravListingResponse;
 import com.android.luggshare.business.models.traveleroffer.TravelerOfferRequest;
@@ -55,6 +57,9 @@ public interface ApiInterface {
 
     @POST("dashboard/senderdetail")
     Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);
+
+    @POST("dashboard/travelerdetail")
+    Call<TravelerDetailsResponse> fetchTravelerDetails(@Body TravelerDetailsRequest body);
 
     @POST("Summary/sender")
     Call<SenderSummaryResponse> getPricing(@Body SenderSummaryRequest body);

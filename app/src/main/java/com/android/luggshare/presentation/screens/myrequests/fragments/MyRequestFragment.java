@@ -139,7 +139,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, requestTypeBundle);
 
-                    replaceChildFragmentWithDelay(new MyRequestDetailsFragment(), true, false, bundle, true);
+                    replaceChildFragmentWithDelay(new MyRequestDetailsFragment(), false, true, bundle, true);
 
 
                     Toast.makeText(getContext(), respObj.getName() + " is selected!", Toast.LENGTH_SHORT).show();
