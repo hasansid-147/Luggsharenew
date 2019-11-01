@@ -18,6 +18,8 @@ import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.models.getsenderlist.RequestSenderList;
 import com.android.luggshare.business.models.senderdetails.SenderDetailsRequest;
 import com.android.luggshare.business.models.senderdetails.SenderDetailsResponse;
+import com.android.luggshare.business.models.travelerdetails.TravelerDetailsRequest;
+import com.android.luggshare.business.models.travelerdetails.TravelerDetailsResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.RequestTypeBundle;
@@ -100,10 +102,10 @@ public class MyRequestDetailsFragment extends CoreFragment implements View.OnCli
         if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
             fetchSenderDetails(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID) + "", requestTypeBundle.getRequestObj().getReqId() + "", requestTypeBundle.getRequestType());
 
-        } else if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
-
+        } else if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
+            fetchTravelerDetails(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID) + "", requestTypeBundle.getRequestObj().getReqId() + "", requestTypeBundle.getRequestType());
         }
-        if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
+        if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
 
         }
 
@@ -135,7 +137,7 @@ public class MyRequestDetailsFragment extends CoreFragment implements View.OnCli
 
 
                 if (response.isSuccessful()) {
-                    initViews(response.body());
+                    initSenderView(response.body());
 
                 } else {
 
@@ -154,7 +156,51 @@ public class MyRequestDetailsFragment extends CoreFragment implements View.OnCli
 
     }
 
-    private void initViews(SenderDetailsResponse resp) {
+    private void fetchTravelerDetails(String uid, String requestId, String requestType) {
+
+        UiHelper.getInstance().hideKeyboard(getActivity());
+
+        UiHelper.getInstance().showLoadingIndicator(getActivity());
+
+        TravelerDetailsRequest travelerDetailsRequest = new TravelerDetailsRequest();
+
+        travelerDetailsRequest.setUid(uid);
+        travelerDetailsRequest.setReqId(requestId);
+        travelerDetailsRequest.setReqType(requestType);
+
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<TravelerDetailsResponse> call = apiService.fetchTravelerDetails(travelerDetailsRequest);
+        call.enqueue(new Callback<TravelerDetailsResponse>() {
+            @Override
+            public void onResponse(Call<TravelerDetailsResponse> call, Response<TravelerDetailsResponse> response) {
+
+                Log.d("List", "RESPONSE:" + response.body());
+                UiHelper.getInstance().hideLoadingIndicator();
+
+
+                if (response.isSuccessful()) {
+                    //initViews(response.body());
+
+                } else {
+
+                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<TravelerDetailsResponse> call, Throwable t) {
+                UiHelper.getInstance().hideLoadingIndicator();
+                Log.e("failure", t.toString());
+            }
+        });
+
+
+    }
+
+    private void initSenderView(SenderDetailsResponse resp) {
 
         tvItemName.setText(resp.getName());
         tvItemDesc.setText(resp.getDetail());
