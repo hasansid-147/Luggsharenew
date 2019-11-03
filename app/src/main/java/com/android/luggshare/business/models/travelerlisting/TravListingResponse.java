@@ -52,6 +52,15 @@ public class TravListingResponse implements Serializable {
     @SerializedName("delv_date")
     @Expose
     private String delvDate;
+    @SerializedName("imagename2")
+    @Expose
+    private String imagename2;
+    @SerializedName("prodimage2")
+    @Expose
+    private String prodimage2;
+    @SerializedName("url")
+    @Expose
+    private String url;
 
     public Integer getUid() {
         return uid;

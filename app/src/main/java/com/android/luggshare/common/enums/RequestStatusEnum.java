@@ -2,22 +2,17 @@ package com.android.luggshare.common.enums;
 
 import com.google.gson.annotations.SerializedName;
 
-public enum RequestTypeEnum {
+public enum RequestStatusEnum {
 
-    @SerializedName("Sender")
-    SENDER("Sender"),
+    @SerializedName("ACCEPTED")
+    ACCEPTED("ACCEPTED"),
 
-    @SerializedName("TRAVELER")
-    TRAVELER("TRAVELER"),
-
-    @SerializedName("PURCHASER")
-    PURCHASER("PURCHASER");
-
-
+    @SerializedName("CREATED")
+    CREATED("CREATED");
 
     private String string;
 
-    RequestTypeEnum(String string) {
+    RequestStatusEnum(String string) {
         this.string = string;
     }
 
@@ -25,9 +20,9 @@ public enum RequestTypeEnum {
         return string;
     }
 
-    public static RequestTypeEnum fromString(String string) {
+    public static RequestStatusEnum fromString(String string) {
         if (string != null) {
-            for (RequestTypeEnum buildType : RequestTypeEnum.values()) {
+            for (RequestStatusEnum buildType : RequestStatusEnum.values()) {
                 if (string.equalsIgnoreCase(buildType.string)) return buildType;
             }
         }

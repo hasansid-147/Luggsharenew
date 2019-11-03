@@ -177,6 +177,7 @@ public class TravelerCategoryFragment extends CoreFragment {
                 travelerRequestBundle.setPrefItem1(generalItems);
                 travelerRequestBundle.setPrefItem2(fragileItems);
                 travelerRequestBundle.setPrefItem3(foodItems);
+                travelerRequestBundle.setFromDetailsScreen(false);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(BundleKeys.TRAVELER_REQUEST_BUNDLE, travelerRequestBundle);

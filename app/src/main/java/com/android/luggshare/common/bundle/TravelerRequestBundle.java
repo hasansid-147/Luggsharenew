@@ -42,6 +42,7 @@ public class TravelerRequestBundle implements Serializable {
     @SerializedName("dep_time")
     @Expose
     private String depTime;
+
     @SerializedName("exp_arrivaltime")
     @Expose
     private String expArrivaltime;
@@ -49,6 +50,10 @@ public class TravelerRequestBundle implements Serializable {
     @SerializedName("trav_response_obj")
     @Expose
     private TravListingResponse travListRespObj;
+
+    @SerializedName("from_details_screen")
+    @Expose
+    private Boolean fromDetailsScreen = false;
 
     public Integer getUid() {
         return uid;
@@ -152,5 +157,13 @@ public class TravelerRequestBundle implements Serializable {
 
     public void setTravListRespObj(TravListingResponse travListRespObj) {
         this.travListRespObj = travListRespObj;
+    }
+
+    public Boolean getFromDetailsScreen() {
+        return fromDetailsScreen;
+    }
+
+    public void setFromDetailsScreen(Boolean fromDetailsScreen) {
+        this.fromDetailsScreen = fromDetailsScreen;
     }
 }

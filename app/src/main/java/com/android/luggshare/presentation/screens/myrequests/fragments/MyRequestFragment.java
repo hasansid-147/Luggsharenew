@@ -24,6 +24,8 @@ import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestSenderAdapter;
+import com.android.luggshare.presentation.screens.sender.fragments.SenderDetailsFragment;
+import com.android.luggshare.presentation.screens.traveler.fragments.TravelerDetailsFragment;
 import com.android.luggshare.utils.RecyclerTouchListener;
 import com.android.luggshare.utils.UiHelper;
 
@@ -41,8 +43,12 @@ import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 public class MyRequestFragment extends CoreFragment implements View.OnClickListener {
 
     private List<ListResponse> dataList = new ArrayList<>();
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    @BindView(R.id.rvSender)
+    RecyclerView rvSender;
+    @BindView(R.id.rvTraveler)
+    RecyclerView rvTraveler;
+    @BindView(R.id.rvPurchaser)
+    RecyclerView rvPurchaser;
     private MyRequestSenderAdapter mAdapter;
     TextView tvSender, tvTraveler, tvPurchaser;
     RequestTypeBundle requestTypeBundle;
@@ -98,7 +104,14 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
 
 
                 if (response.isSuccessful()) {
-                    initViews(response.body());
+                    if (dataRequest.toLowerCase().equals(AppConstants.KEY_SENDER)) {
+                        initSenderView(response.body());
+                    } else if (dataRequest.toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
+                        initTravelerView(response.body());
+                    }
+                    if (dataRequest.equals(AppConstants.KEY_PURCHASER)) {
+                        initPurchaserView(response.body());
+                    }
 
                 } else {
                     if (mAdapter != null)
@@ -118,15 +131,19 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
 
     }
 
-    private void initViews(final ArrayList<ListResponse> arrayList) {
+    private void initSenderView(final ArrayList<ListResponse> arrayList) {
+
+        rvSender.setVisibility(View.VISIBLE);
+        rvTraveler.setVisibility(View.GONE);
+        rvPurchaser.setVisibility(View.GONE);
 
         mAdapter = new MyRequestSenderAdapter(arrayList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        rvSender.setLayoutManager(mLayoutManager);
+        rvSender.setItemAnimator(new DefaultItemAnimator());
+        rvSender.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        rvSender.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvSender, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 try {
@@ -139,10 +156,105 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, requestTypeBundle);
 
-                    replaceChildFragmentWithDelay(new MyRequestDetailsFragment(), false, true, bundle, true);
+                    replaceChildFragmentWithDelay(new SenderDetailsFragment(), false, true, bundle, true);
 
 
-                    Toast.makeText(getContext(), respObj.getName() + " is selected!", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+    }
+
+    private void initTravelerView(final ArrayList<ListResponse> arrayList) {
+
+        rvSender.setVisibility(View.GONE);
+        rvTraveler.setVisibility(View.VISIBLE);
+        rvPurchaser.setVisibility(View.GONE);
+
+        mAdapter = new MyRequestSenderAdapter(arrayList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        rvTraveler.setLayoutManager(mLayoutManager);
+        rvTraveler.setItemAnimator(new DefaultItemAnimator());
+        rvTraveler.setAdapter(mAdapter);
+
+        rvTraveler.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvTraveler, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                try {
+
+                    ListResponse respObj = arrayList.get(position);
+
+                    requestTypeBundle.setRequestType(respObj.getReqType());
+                    requestTypeBundle.setRequestObj(respObj);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, requestTypeBundle);
+
+                    if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
+                        replaceChildFragmentWithDelay(new SenderDetailsFragment(), false, true, bundle, true);
+
+                    } else if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
+                        replaceChildFragmentWithDelay(new TravelerDetailsFragment(), false, true, bundle, true);
+                    }
+                    if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+    }
+
+    private void initPurchaserView(final ArrayList<ListResponse> arrayList) {
+
+        rvSender.setVisibility(View.GONE);
+        rvTraveler.setVisibility(View.GONE);
+        rvPurchaser.setVisibility(View.VISIBLE);
+
+        mAdapter = new MyRequestSenderAdapter(arrayList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        rvPurchaser.setLayoutManager(mLayoutManager);
+        rvPurchaser.setItemAnimator(new DefaultItemAnimator());
+        rvPurchaser.setAdapter(mAdapter);
+
+        rvPurchaser.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvPurchaser, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                try {
+
+                    ListResponse respObj = arrayList.get(position);
+
+                    requestTypeBundle.setRequestType(respObj.getReqType());
+                    requestTypeBundle.setRequestObj(respObj);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, requestTypeBundle);
+
+                    if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
+                        replaceChildFragmentWithDelay(new SenderDetailsFragment(), false, true, bundle, true);
+
+                    } else if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
+                        replaceChildFragmentWithDelay(new TravelerDetailsFragment(), false, true, bundle, true);
+                    }
+                    if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
