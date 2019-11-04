@@ -31,6 +31,7 @@ import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.dashboard.activities.DashboardActivity;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.traveler.adapters.TravelerListingAdapter;
 import com.android.luggshare.utils.UiHelper;
@@ -216,6 +217,7 @@ public class TravelerListingFragment extends CoreFragment {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+
 
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
