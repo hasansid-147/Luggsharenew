@@ -86,6 +86,11 @@ public class TravelerListingFragment extends CoreFragment {
 
         txtNoDataFound.setVisibility(View.GONE);
 
+        if (travelerRequestBundle.getFromDetailsScreen())
+            btnPostData.setVisibility(View.GONE);
+        else
+            btnPostData.setVisibility(View.VISIBLE);
+
         getTravelerListing();
 
         btnPostData.setOnClickListener(new View.OnClickListener() {
@@ -121,13 +126,8 @@ public class TravelerListingFragment extends CoreFragment {
         call.enqueue(new Callback<ArrayList<TravListingResponse>>() {
             @Override
             public void onResponse(Call<ArrayList<TravListingResponse>> call, Response<ArrayList<TravListingResponse>> response) {
-                Log.d("response", "isSuccessfull: " + response.isSuccessful());
-                // Log.d(TAG, "Status" + response.toString());
-                // Log.d(TAG, "RESPONSE:" + response.body().toString());
 
                 if (response.body() != null) {
-
-                    // Getting adapter by passing xml data ArrayList
                     adapter = new TravelerListingAdapter(getActivity(), response.body());
                     list.setAdapter(adapter);
 
@@ -217,11 +217,11 @@ public class TravelerListingFragment extends CoreFragment {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+                    replaceChildFragmentWithDelay(new HomeFragment(), false, false, null, false);
 
 
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
-                    replaceChildFragmentWithDelay(new TravelerListingFragment(), true, false, null, false);
                 }
 
             }
