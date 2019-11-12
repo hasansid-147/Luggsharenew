@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/con_text"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_120sdp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/border_curved"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:text="Username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/tvDeparture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:text="departure date"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:id="@+id/txtDeparture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/gray"
+        android:text="Departure"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tvDeparture"
+        />
+
+    <TextView
+        android:id="@+id/tvArrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:text="Arrival"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/txtDeparture"
+        />
+
+    <TextView
+        android:id="@+id/txtArrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/gray"
+        android:text="Arrival"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tvArrival"
+        />
+
+    <TextView
+        android:id="@+id/txtByDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/gray"
+        android:text="By Date"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/tvByDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:text="By Date"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtByDate"
+        />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/colorBlack"
+        android:text="Status"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/gray"
+        android:text="Status"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/tvStatus"
+        />
+
+
+
+</RelativeLayout>

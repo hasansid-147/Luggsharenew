@@ -6,5 +6,6 @@ public class BundleKeys {
     public static final String TRAVELER_REQUEST_BUNDLE = "TravelerRequestBundle";
     public static final String PURCHASER_REQUEST_BUNDLE = "PurchaserRequestBundle";
     public static final String MY_REQUEST_BUNDLE = "MyRequestBundle";
+    public static final String RECEIVED_OFFER_BUNDLE = "ReceivedOfferBundle";
 
 }

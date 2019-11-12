@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.android.luggshare.R;
 import com.android.luggshare.business.models.senderdetails.SenderDetailsRequest;
@@ -21,6 +22,7 @@ import com.android.luggshare.common.bundle.RequestTypeBundle;
 import com.android.luggshare.common.bundle.TravelerRequestBundle;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
+import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.utils.UiHelper;
 
@@ -137,6 +139,11 @@ public class TravelerDetailsFragment extends CoreFragment {
             tvExpArrival.setText(resp.getExpArrvTime());
             tvBaggage.setText(resp.getBagCap() + "");
             tvStatus.setText(resp.getReqstatus());
+
+            if (Integer.parseInt(resp.getOfferstatus()) == 1) {
+                btnSearch.setEnabled(false);
+                btnSearch.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.gray));
+            }
 
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -17,6 +17,7 @@ import com.android.luggshare.R;
 import com.android.luggshare.presentation.activities.CoreActivity;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.myoffers.fragments.MyOffersFragment;
 import com.android.luggshare.presentation.screens.myrequests.fragments.MyRequestFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -75,6 +76,9 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         break;
                     case R.id.nav_request:
                         replaceChildFragmentWithDelay(R.id.content_area, new MyRequestFragment(), true, false, null, true);
+                        break;
+                    case R.id.nav_offer:
+                        replaceChildFragmentWithDelay(R.id.content_area, new MyOffersFragment(), true, false, null, true);
                         break;
                     default:
                         return true;
