@@ -106,9 +106,9 @@ public class MyOfferDetailsFragment extends CoreFragment {
 
         login.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
         login.setTravelerUid(receivedOfferBundle.getRequestObj().getTrvId());
-        login.setSendPurchaserreqid(receivedOfferBundle.getRequestObj().getSenderPurchaserid());
+        login.setSendPurchaserreqid(receivedOfferBundle.getRequestObj().getSendReqId());
         login.setTravelerreqid(receivedOfferBundle.getRequestObj().getTrvReqId());
-        login.setReqtype("SENDER");
+        login.setReqtype(receivedOfferBundle.getRequestObj().getRequest_type());
         login.setStatus("ACCEPTED");
 
         ApiInterface apiService =

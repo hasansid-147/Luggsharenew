@@ -41,6 +41,9 @@ public class ResponseMyOffersReceivedList {
     @SerializedName("item_name")
     @Expose
     private String itemName;
+    @SerializedName("request_type")
+    @Expose
+    private String request_type;
     @SerializedName("offer_price")
     @Expose
     private Double offerPrice;
@@ -142,6 +145,14 @@ public class ResponseMyOffersReceivedList {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
+    }
+
+    public String getRequest_type() {
+        return request_type;
+    }
+
+    public void setRequest_type(String request_type) {
+        this.request_type = request_type;
     }
 
     public Double getOfferPrice() {
