@@ -131,7 +131,7 @@ public class MyOfferDetailsFragment extends CoreFragment {
                     Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     replaceChildFragmentWithDelay(new AddCardFragment(), true, false, bundle, false);
                 } else if (response.isSuccessful() && response.body().getStatus() == 1) {
-                    Toast.makeText(getContext(), "Offer Accepted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), response.body().getMessage() + "", Toast.LENGTH_SHORT).show();
                     replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();

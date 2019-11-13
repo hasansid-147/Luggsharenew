@@ -1,6 +1,7 @@
 package com.android.luggshare.common.managers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.android.luggshare.presentation.application.CustomApplication;
@@ -197,5 +198,11 @@ public class PreferenceManager {
             mEditor.commit();
             mEditor = null;
         }
+    }
+
+    public void logoutUser(){
+        // Clearing all data from Shared Preferences
+        mEditor.clear();
+        mEditor.commit();
     }
 }

@@ -19,6 +19,7 @@ import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.myoffers.fragments.MyOffersFragment;
 import com.android.luggshare.presentation.screens.myrequests.fragments.MyRequestFragment;
+import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -69,7 +70,7 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         replaceChildFragmentWithDelay(R.id.content_area, new HomeFragment(), true, false, null, true);
                         break;
                     case R.id.nav_profile:
-                        replaceChildFragmentWithDelay(R.id.content_area, new SenderRequestFragment(), true, false, null, true);
+                        replaceChildFragmentWithDelay(R.id.content_area, new ProfileFragment(), true, false, null, true);
                         break;
                     case R.id.nav_security:
                         replaceChildFragmentWithDelay(R.id.content_area, new HomeFragment(), true, false, null, true);

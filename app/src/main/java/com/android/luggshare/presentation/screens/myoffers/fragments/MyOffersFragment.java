@@ -69,8 +69,7 @@ public class MyOffersFragment extends CoreFragment {
 
         tvReceived.setBackgroundResource(R.drawable.border_curved_selected);
 
-        //fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
-        fetchListData(21);
+        fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
 
         return rootview;
     }
