@@ -1,4 +1,4 @@
-package com.android.luggshare.presentation.screens.myoffers.fragments;
+package com.android.luggshare.presentation.screens.cards.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,14 +15,17 @@ import androidx.annotation.NonNull;
 import com.android.luggshare.R;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.addcard.AddCardRequest;
+import com.android.luggshare.business.models.addcard.AddCardResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
+import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
-import com.android.luggshare.presentation.screens.cards.fragments.AddCardFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.utils.DateTimePicker;
 import com.android.luggshare.utils.UiHelper;
 
 import butterknife.BindView;
@@ -33,34 +37,27 @@ import retrofit2.Response;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 
 
-public class MyOfferDetailsFragment extends CoreFragment {
+public class AddCardFragment extends CoreFragment {
 
-    @BindView(R.id.tvUserName)
-    TextView tvUserName;
+    @BindView(R.id.edtCardName)
+    EditText edtCardName;
 
-    @BindView(R.id.tvRating)
-    TextView tvRating;
+    @BindView(R.id.edtCardNo)
+    EditText edtCardNo;
 
-    @BindView(R.id.tvTravelingFrom)
-    TextView tvTravelingFrom;
+    @BindView(R.id.edtExpDatet)
+    EditText edtExpDatet;
 
-    @BindView(R.id.tvTravelingTo)
-    TextView tvTravelingTo;
+    @BindView(R.id.edtCVV)
+    EditText edtCVV;
 
-    @BindView(R.id.tvArrivalDate)
-    TextView tvArrivalDate;
-
-    @BindView(R.id.tvOffer)
-    TextView tvOffer;
-
-    @BindView(R.id.btnAcceptOffer)
-    Button btnAcceptOffer;
+    DateTimePicker expiryDateObj;
 
     ReceivedOfferBundle receivedOfferBundle;
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.fragment_my_offer_details;
+        return R.layout.fragment_add_card;
     }
 
     @Override
@@ -78,24 +75,89 @@ public class MyOfferDetailsFragment extends CoreFragment {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
-        initDetails(receivedOfferBundle);
-
+        expiryDateObj = new DateTimePicker();
 
         return rootview;
     }
 
-    private void initDetails(ReceivedOfferBundle resp) {
+    @OnClick(R.id.btnAdd)
+    public void onAddCardClicked() {
 
-        tvUserName.setText(resp.getRequestObj().getTrvName());
-        tvRating.setText(resp.getRequestObj().getTravlerRating() + "/5");
-        tvTravelingFrom.setText(resp.getRequestObj().getDepartingFrom());
-        tvTravelingTo.setText(resp.getRequestObj().getArrivalTo());
-        tvArrivalDate.setText(resp.getRequestObj().getArrivDate());
-        tvOffer.setText(resp.getRequestObj().getOfferPrice() + " PKR");
+        if (!errorInFields()) {
+
+        }
+
+        UiHelper.getInstance().hideKeyboard(getActivity());
+
+        UiHelper.getInstance().showLoadingIndicator(getActivity());
+
+        AddCardRequest login = new AddCardRequest();
+
+        login.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID) + "");
+        login.setCreditCard(edtCardNo.getText().toString());
+        login.setCardName(edtCardName.getText().toString());
+        login.setExpiryDate(edtExpDatet.getText().toString());
+        login.setBillAddress("XYZ");
+        login.setCity("Karachi");
+        login.setCvv(edtCVV.getText().toString());
+        login.setIsvalid(1);
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+
+        Call<AddCardResponse> call = apiService.addCard(login);
+        call.enqueue(new Callback<AddCardResponse>() {
+            @Override
+            public void onResponse(Call<AddCardResponse> call, Response<AddCardResponse> response) {
+
+                Log.d("List", "RESPONSE:" + response.body());
+                UiHelper.getInstance().hideLoadingIndicator();
+
+
+                if (response.isSuccessful()) {
+                    onAcceptOfferClicked();
+                } else {
+                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<AddCardResponse> call, Throwable t) {
+                Log.e("List", t.toString());
+            }
+        });
+
 
     }
 
-    @OnClick(R.id.btnAcceptOffer)
+    private boolean errorInFields() {
+
+        boolean hasError = true;
+
+        if (edtCardName.getText().toString().isEmpty()){
+            Toast.makeText(CustomApplication.getContext(), "Please enter valid card name.", Toast.LENGTH_SHORT).show();
+            hasError = false;
+        }
+
+        if (edtCardNo.getText().toString().isEmpty()){
+            Toast.makeText(CustomApplication.getContext(), "Please enter valid card number.", Toast.LENGTH_SHORT).show();
+            hasError = false;
+        }
+
+        if (edtExpDatet.getText().toString().isEmpty()){
+            Toast.makeText(CustomApplication.getContext(), "Please enter valid expiry date.", Toast.LENGTH_SHORT).show();
+            hasError = false;
+        }
+
+        if (edtCVV.getText().toString().isEmpty()){
+            Toast.makeText(CustomApplication.getContext(), "Please enter valid CVV.", Toast.LENGTH_SHORT).show();
+            hasError = false;
+        }
+
+        return hasError;
+
+    }
+
     public void onAcceptOfferClicked() {
 
         UiHelper.getInstance().hideKeyboard(getActivity());
@@ -123,15 +185,7 @@ public class MyOfferDetailsFragment extends CoreFragment {
                 UiHelper.getInstance().hideLoadingIndicator();
 
 
-                if (response.isSuccessful() && response.body().getStatus() == 0) {
-
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(BundleKeys.RECEIVED_OFFER_BUNDLE, receivedOfferBundle);
-
-                    Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    replaceChildFragmentWithDelay(new AddCardFragment(), true, false, bundle, false);
-                } else if (response.isSuccessful() && response.body().getStatus() == 1) {
-                    Toast.makeText(getContext(), "Offer Accepted", Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
                     replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();

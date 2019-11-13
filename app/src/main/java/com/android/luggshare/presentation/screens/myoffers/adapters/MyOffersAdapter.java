@@ -46,13 +46,13 @@ public class MyOffersAdapter extends RecyclerView.Adapter<MyOffersAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        ResponseMyOffersReceivedList movie = offersList.get(position);
-        holder.tvUsername.setText(movie.getTrvName());
-        holder.tvArrival.setText(movie.getArrivalTo());
-        holder.tvDeparture.setText(movie.getDepartingFrom());
-        holder.tvDeparture.setText(movie.getDepartingFrom());
-        holder.tvByDate.setText(movie.getDelvDate());
-        holder.tvStatus.setText(movie.getOfferStatus());
+        ResponseMyOffersReceivedList offerObj = offersList.get(position);
+        holder.tvUsername.setText(offerObj.getTrvName());
+        holder.tvArrival.setText(offerObj.getArrivalTo());
+        holder.tvDeparture.setText(offerObj.getDepartingFrom());
+        holder.tvDeparture.setText(offerObj.getDepartingFrom());
+        holder.tvByDate.setText(offerObj.getDelvDate());
+        holder.tvStatus.setText(offerObj.getOfferStatus());
     }
 
     @Override

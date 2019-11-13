@@ -3,6 +3,8 @@ package com.android.luggshare.utils;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -781,6 +783,17 @@ public class DateHelper {
 	    final long differenceSeconds = (currentTimeSeconds - referenceSeconds);
 
 	    return differenceSeconds;
+	}
+
+	public static String formatDate(@NonNull Date date, @NonNull String type) {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(type);
+		return simpleDateFormat.format(date);
+	}
+
+	public static Date parseDate(@NonNull String dateStr, @NonNull String type) throws ParseException {
+		SimpleDateFormat df = new SimpleDateFormat(type);
+		Date date = df.parse(dateStr);
+		return date;
 	}
 
 }
