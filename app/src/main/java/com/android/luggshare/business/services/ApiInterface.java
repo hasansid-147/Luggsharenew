@@ -2,6 +2,8 @@ package com.android.luggshare.business.services;
 
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.addcard.AddCardRequest;
+import com.android.luggshare.business.models.addcard.AddCardResponse;
 import com.android.luggshare.business.models.getmyoffersreceived.RequestMyOffersReceivedList;
 import com.android.luggshare.business.models.getmyoffersreceived.ResponseMyOffersReceivedList;
 import com.android.luggshare.business.models.getsenderlist.ListResponse;
@@ -67,6 +69,9 @@ public interface ApiInterface {
 
     @POST("offer/acceptoffer")
     Call<OfferAcceptResponse> acceptOffer(@Body OfferAcceptRequest body);
+
+    @POST("payment/addcrc")
+    Call<AddCardResponse> addCard(@Body AddCardRequest body);
 
     @POST("dashboard/travelerdetail")
     Call<TravelerDetailsResponse> fetchTravelerDetails(@Body TravelerDetailsRequest body);
