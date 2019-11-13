@@ -22,6 +22,7 @@ import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
 import com.android.luggshare.common.keys.BundleKeys;
+import com.android.luggshare.common.managers.ApplicationStateManager;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
@@ -126,6 +127,8 @@ public class ProfileFragment extends CoreFragment {
     public void onLoginClicked() {
 
         PreferenceManager.getInstance().clear();
+
+        ApplicationStateManager.getInstance().setIsAuthenticated(false);
 
         // After logout redirect user to Loing Activity
         Intent i = new Intent(CustomApplication.getContext(), LoginActivity.class);
