@@ -20,6 +20,7 @@ import com.android.luggshare.common.bundle.ReceivedOfferBundle;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.utils.UiHelper;
 
 import butterknife.BindView;
@@ -124,6 +125,7 @@ public class MyOfferDetailsFragment extends CoreFragment {
                 if (response.isSuccessful()) {
 
                     Toast.makeText(getContext(), "Offer Accepted", Toast.LENGTH_SHORT).show();
+                    replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
 
                 } else {
 

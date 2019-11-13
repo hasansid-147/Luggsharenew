@@ -65,7 +65,7 @@ public interface ApiInterface {
     @POST("dashboard/senderdetail")
     Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);
 
-    @POST("api/offer/acceptoffer")
+    @POST("offer/acceptoffer")
     Call<OfferAcceptResponse> acceptOffer(@Body OfferAcceptRequest body);
 
     @POST("dashboard/travelerdetail")
