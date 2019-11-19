@@ -213,7 +213,7 @@
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x50"
+        android:layout_height="@dimen/_50sdp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
