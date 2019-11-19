@@ -145,6 +145,22 @@ public class ProfileFragment extends CoreFragment {
 
     }
 
+
+    @OnClick(R.id.btnedit)
+    public void onEdit() {
+
+
+
+        // After logout redirect user to Loing Activity
+        Intent i = new Intent(CustomApplication.getContext(), ProfileFragmentedit.class);
+
+        // Staring Login Activity
+        CustomApplication.getContext().startActivity(i);
+
+
+
+    }
+
     private void getUserProfile(){
         UiHelper.getInstance().showLoadingIndicator(getActivity());
 
