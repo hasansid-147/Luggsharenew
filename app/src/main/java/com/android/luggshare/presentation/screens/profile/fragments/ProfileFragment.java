@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import com.android.luggshare.R;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
@@ -27,8 +28,10 @@ import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.cards.fragments.AddCardFragment;
+import com.android.luggshare.presentation.screens.dashboard.activities.DashboardActivity;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.login.activities.LoginActivity;
+import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestSizeFragment;
 import com.android.luggshare.utils.UiHelper;
 
 import java.util.HashMap;
@@ -150,12 +153,13 @@ public class ProfileFragment extends CoreFragment {
     public void onEdit() {
 
 
+        replaceChildFragmentWithDelay(new ProfileFragmentedit(), true, false, null, true);
 
         // After logout redirect user to Loing Activity
-        Intent i = new Intent(CustomApplication.getContext(), ProfileFragmentedit.class);
+       // Intent i = new Intent(CustomApplication.getContext(), ProfileFragmentedit.class);
 
         // Staring Login Activity
-        CustomApplication.getContext().startActivity(i);
+      //  CustomApplication.getContext().startActivity(i);
 
 
 
@@ -221,7 +225,7 @@ public class ProfileFragment extends CoreFragment {
 
                         }
                         //**change it to rspIsemail after email validation work
-                        if (rspEmail != "") {
+                        if (rspIsemail == 1) {
                             imgCancelEmail.setVisibility(View.INVISIBLE);
                             imgTickEmail.setVisibility(View.VISIBLE);
                         }

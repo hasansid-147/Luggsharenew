@@ -233,6 +233,7 @@
 
     <string name="email_pattern_validation">^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$</string>
     <string name="title_activity_dashboard">Dashboard</string>
+
     <string name="error_something_went_wrong">Something went wrong.</string>
 
     <string name="menu_home">Home</string>
