@@ -64,13 +64,13 @@
 
     </RelativeLayout>
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnVerify"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        android:text="Update Changes"
+        android:text="Verify Email"
         android:textColor="@color/white"
         android:visibility="visible" />
 </RelativeLayout>

@@ -26,6 +26,8 @@ import com.android.luggshare.business.models.travelerlisting.TravListingRequest;
 import com.android.luggshare.business.models.travelerlisting.TravListingResponse;
 import com.android.luggshare.business.models.traveleroffer.TravelerOfferRequest;
 import com.android.luggshare.business.models.traveleroffer.TravelerOfferResponse;
+import com.android.luggshare.business.models.userprofile.EmailVerification;
+import com.android.luggshare.business.models.userprofile.EmailVerificationResponse;
 import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
@@ -142,6 +144,10 @@ public interface ApiInterface {
 
     @POST("User/updprofile")
     Call<UpdUserProfileResponse> updUserProfile(@Body UpdUserProfile body);
+
+    @POST("email/activate")
+    Call<EmailVerificationResponse> verifyEmailaddress(@Body EmailVerification body);
+
 
     @POST("offer/createoffer")
     Call<TravelerOfferResponse> sendTravelerOffer(@Body TravelerOfferRequest body);

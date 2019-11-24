@@ -173,7 +173,11 @@ public class ProfileFragment extends CoreFragment {
     @OnClick(R.id.txtIsEmail)
     public void onclicktxtIsEmail(){
 
-        replaceChildFragmentWithDelay(new VerifyEmail(), true, false, null, true);
+        if(imgCancelEmail.getVisibility() == View.VISIBLE){
+            replaceChildFragmentWithDelay(new VerifyEmail(), true, false, null, true);
+        }
+
+
 
     }
 
