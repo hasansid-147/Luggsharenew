@@ -13,6 +13,8 @@ import com.android.luggshare.business.models.userprofile.EmailVerification;
 import com.android.luggshare.business.models.userprofile.EmailVerificationResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.EditUserProfileBundle;
+import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.utils.UiHelper;
@@ -35,6 +37,8 @@ public class VerifyEmailFragment extends CoreFragment {
    @BindView(R.id.btnVerify)
    Button btnVerify;
 
+
+    EditUserProfileBundle verifyUserEmailBundle ;
     private static final String TAG = VerifyEmailFragment.class.getSimpleName();
 
     @Override
@@ -49,16 +53,16 @@ public class VerifyEmailFragment extends CoreFragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-
+            verifyUserEmailBundle = (EditUserProfileBundle) getArguments().getSerializable(BundleKeys.VERIFY_USER_EMAIL);
         }
 
     }
 
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
+        edtemail.setText(verifyUserEmailBundle.getEmail());
         edtemail.setEnabled(false);
 
         return rootview;

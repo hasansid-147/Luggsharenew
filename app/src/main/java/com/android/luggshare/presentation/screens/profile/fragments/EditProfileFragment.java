@@ -14,6 +14,9 @@ import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.EditUserProfileBundle;
+import com.android.luggshare.common.bundle.SenderRequestBundle;
+import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
@@ -50,9 +53,21 @@ public class EditProfileFragment extends CoreFragment {
 
     private static final String TAG = ProfileFragment.class.getSimpleName();
 
+    EditUserProfileBundle editUserProfileBundle;
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.fragment_user_profile_edit;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            editUserProfileBundle = (EditUserProfileBundle) getArguments().getSerializable(BundleKeys.EDIT_USERPROFILE_BUNDLE);
+        }
+
     }
 
 
@@ -61,9 +76,9 @@ public class EditProfileFragment extends CoreFragment {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
-        edtfname.setText(PreferenceManager.getInstance().getString(KEY_USERNAME));
-        edtlname.setText(PreferenceManager.getInstance().getString(KEY_USERLNAME));
-        edtemail.setText(PreferenceManager.getInstance().getString(KEY_EMAIL));
+        edtfname.setText(editUserProfileBundle.getFname().toString());
+        edtlname.setText(editUserProfileBundle.getLname().toString());
+        edtemail.setText(editUserProfileBundle.getEmail().toString());
 
         return rootview;
     }
