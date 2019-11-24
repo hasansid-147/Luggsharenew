@@ -10,32 +10,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.android.luggshare.R;
-import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
-import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
-import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
-import com.android.luggshare.common.bundle.ReceivedOfferBundle;
-import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.ApplicationStateManager;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
-import com.android.luggshare.presentation.screens.cards.fragments.AddCardFragment;
-import com.android.luggshare.presentation.screens.dashboard.activities.DashboardActivity;
-import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.login.activities.LoginActivity;
-import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestSizeFragment;
 import com.android.luggshare.utils.UiHelper;
-
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -155,52 +143,34 @@ public class ProfileFragment extends CoreFragment {
 
     @OnClick(R.id.btnedit)
     public void onEdit() {
-
-
-        replaceChildFragmentWithDelay(new ProfileFragmentedit(), true, false, null, true);
-
-        // After logout redirect user to Loing Activity
-       // Intent i = new Intent(CustomApplication.getContext(), ProfileFragmentedit.class);
-
-        // Staring Login Activity
-      //  CustomApplication.getContext().startActivity(i);
-
-
-
+        replaceChildFragmentWithDelay(new EditProfileFragment(), true, false, null, true);
     }
 
 
     @OnClick(R.id.txtIsEmail)
-    public void onclicktxtIsEmail(){
-
+    public void onClickIsEmail(){
         if(imgCancelEmail.getVisibility() == View.VISIBLE){
-            replaceChildFragmentWithDelay(new VerifyEmail(), true, false, null, true);
+            replaceChildFragmentWithDelay(new VerifyEmailFragment(), true, false, null, true);
         }
-
-
 
     }
 
     private void getUserProfile(){
         UiHelper.getInstance().showLoadingIndicator(getActivity());
 
-
-        UserProfileGet userprofRequest = new UserProfileGet();
-        userprofRequest.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
-        userprofRequest.setEmail(PreferenceManager.getInstance().getString(KEY_EMAIL));
+        UserProfileGet userProfRequest = new UserProfileGet();
+        userProfRequest.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+        userProfRequest.setEmail(PreferenceManager.getInstance().getString(KEY_EMAIL));
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<UserProfileResponse> call = apiService.getUserProfile(userprofRequest);
+        Call<UserProfileResponse> call = apiService.getUserProfile(userProfRequest);
         call.enqueue(new Callback<UserProfileResponse>() {
 
 
             @Override
             public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
-                Log.d(TAG, "issuccessfull: " + response.isSuccessful());
-                Log.d(TAG, "Status" + response.toString());
-                Log.d(TAG, "RESPONSE:" + response.body());
 
                 if (response.body() != null) {
 
@@ -275,14 +245,7 @@ public class ProfileFragment extends CoreFragment {
             }
 
 
-
-
         });
-
-
-
-
-
 
 
     }

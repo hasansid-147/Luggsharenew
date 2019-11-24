@@ -12,35 +12,27 @@ import android.widget.Toast;
 import com.android.luggshare.R;
 import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
-import com.android.luggshare.business.models.userprofile.UserProfileGet;
-import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.utils.UiHelper;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static com.android.luggshare.common.keys.AppConstants.BASE_IMG_PATH;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_EMAIL;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_USERLNAME;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_USERNAME;
 
-public class ProfileFragmentedit extends CoreFragment {
-
+public class EditProfileFragment extends CoreFragment {
 
     @BindView(R.id.edtfname)
     EditText edtfname;
-
     @BindView(R.id.edtlname)
     EditText edtlname;
     @BindView(R.id.edtemail)
@@ -51,20 +43,13 @@ public class ProfileFragmentedit extends CoreFragment {
     EditText edtcntry;
     @BindView(R.id.edtcity)
     EditText edtcity;
-
     @BindView(R.id.btnUpdate)
     Button btnUpdate;
-
-
-
     @BindView(R.id.imgProfile)
     com.makeramen.roundedimageview.RoundedImageView imgProfile;
 
-
-
-    String userFname,userLname,userEmail;
-
     private static final String TAG = ProfileFragment.class.getSimpleName();
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.fragment_user_profile_edit;
@@ -80,31 +65,32 @@ public class ProfileFragmentedit extends CoreFragment {
         edtlname.setText(PreferenceManager.getInstance().getString(KEY_USERLNAME));
         edtemail.setText(PreferenceManager.getInstance().getString(KEY_EMAIL));
 
-
-
-
         return rootview;
     }
 
 
     @OnClick(R.id.btnUpdate)
     public void onClick(View v) {
-
-
-        UpdUserProfile();
-
+        updateUserProfile();
     }
 
 
-    private void UpdUserProfile(){
+    private void updateUserProfile() {
         UiHelper.getInstance().showLoadingIndicator(getActivity());
 
         String pass = edtPass.getText().toString();
         String country = edtcntry.getText().toString();
         String city = edtcity.getText().toString();
-                if(pass.isEmpty()){pass = null;}
-                if(country.isEmpty()){country = null;}
-                if(city.isEmpty()){city = null;}
+
+        if (pass.isEmpty()) {
+            pass = null;
+        }
+        if (country.isEmpty()) {
+            country = null;
+        }
+        if (city.isEmpty()) {
+            city = null;
+        }
 
         UpdUserProfile upduserprofRequest = new UpdUserProfile();
         upduserprofRequest.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
@@ -133,19 +119,15 @@ public class ProfileFragmentedit extends CoreFragment {
                     UiHelper.getInstance().hideLoadingIndicator();
 
 
+                    if (response.body().getStatus().equals("1")) {
 
-                        if (response.body().getStatus().equals("1")) {
+                        Toast.makeText(CustomApplication.getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        navigateBackFragment();
 
-                            Toast.makeText(CustomApplication.getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                            navigateBackFragment();
+                    } else {
 
-                        }
-                        else{
-
-                            Toast.makeText(CustomApplication.getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-
-
+                        Toast.makeText(CustomApplication.getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
 
 
                 }
@@ -161,14 +143,7 @@ public class ProfileFragmentedit extends CoreFragment {
             }
 
 
-
-
         });
-
-
-
-
-
 
 
     }
