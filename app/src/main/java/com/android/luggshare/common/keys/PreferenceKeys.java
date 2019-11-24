@@ -5,6 +5,8 @@ public class PreferenceKeys {
     public static final String IS_ENABLE_FINGERPRINT_KEY = "enb_fp";
     public static final String KEY_REMEMBER_ME = "rem_me";
     public static final String KEY_USERNAME = "username";
+    public static final String KEY_USERLNAME = "userlname";
+
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_STATUS = "status";

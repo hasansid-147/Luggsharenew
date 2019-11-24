@@ -36,6 +36,7 @@ import retrofit2.Response;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_EMAIL;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_STATUS;
+import static com.android.luggshare.common.keys.PreferenceKeys.KEY_USERLNAME;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_USERNAME;
 
 public class LoginActivity extends CoreActivity implements View.OnClickListener {
@@ -200,6 +201,7 @@ public class LoginActivity extends CoreActivity implements View.OnClickListener 
 
                     ApplicationStateManager.getInstance().setIsAuthenticated(true);
                     PreferenceManager.getInstance().put(KEY_USERNAME, response.body().getFname());
+                    PreferenceManager.getInstance().put(KEY_USERLNAME,response.body().getLname());
                     PreferenceManager.getInstance().put(KEY_EMAIL, response.body().getEmail());
                     PreferenceManager.getInstance().put(KEY_STATUS, response.body().getStatus());
                     PreferenceManager.getInstance().put(KEY_CUSTOMER_ID, response.body().getUid());

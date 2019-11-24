@@ -54,7 +54,7 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
         t.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_activity_dashboard);
+        getSupportActionBar().setTitle(R.string.nav_home);
 
         loadDefaultView();
 
@@ -80,6 +80,9 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         break;
                     case R.id.nav_offer:
                         replaceChildFragmentWithDelay(R.id.content_area, new MyOffersFragment(), true, false, null, true);
+                        break;
+                    case R.id.nav_tracking:
+                        replaceChildFragmentWithDelay(R.id.content_area, null, true, false, null, true);
                         break;
                     default:
                         return true;
