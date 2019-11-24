@@ -32,13 +32,18 @@
 
         <item
             android:id="@+id/nav_payment"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_credit"
             android:title="@string/nav_payment" />
 
         <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/nav_notifications" />
+
+        <item
+            android:id="@+id/nav_tracking"
+            android:icon="@drawable/ic_track"
+            android:title="Track" />
 
         <item
             android:id="@+id/nav_logout"

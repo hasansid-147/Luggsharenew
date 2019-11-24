@@ -81,6 +81,9 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                     case R.id.nav_offer:
                         replaceChildFragmentWithDelay(R.id.content_area, new MyOffersFragment(), true, false, null, true);
                         break;
+                    case R.id.nav_tracking:
+                        replaceChildFragmentWithDelay(R.id.content_area, null, true, false, null, true);
+                        break;
                     default:
                         return true;
                 }

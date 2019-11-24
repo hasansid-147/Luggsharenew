@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,6 +94,9 @@ public class ProfileFragment extends CoreFragment {
     @BindView(R.id.btnedit)
     ImageView btnedit;
 
+    @BindView(R.id.txtIsEmail)
+    RelativeLayout txtIsEmail;
+
 
     String rspUid,rspFname,rspLname,rspEmail,rspImage,rspImapth,rspPhone,rspDesc;
     public Integer rspIslogin=0,rspIsphone=0,rspIsemail=0,rspIsimage=0,rspIssocial=0,rspIsCC=0,rspIscnic=0,rating=0,rspreturn=0;
@@ -162,6 +166,14 @@ public class ProfileFragment extends CoreFragment {
       //  CustomApplication.getContext().startActivity(i);
 
 
+
+    }
+
+
+    @OnClick(R.id.txtIsEmail)
+    public void onclicktxtIsEmail(){
+
+        replaceChildFragmentWithDelay(new VerifyEmail(), true, false, null, true);
 
     }
 
