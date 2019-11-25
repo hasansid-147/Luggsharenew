@@ -157,7 +157,7 @@ public class TrackDeliveryFragment extends CoreFragment {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -201,7 +201,7 @@ public class TrackDeliveryFragment extends CoreFragment {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
                 }
             }
 

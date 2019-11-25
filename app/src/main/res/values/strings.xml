@@ -235,6 +235,7 @@
     <string name="title_activity_dashboard">Dashboard</string>
 
     <string name="error_something_went_wrong">Something went wrong.</string>
+    <string name="No_Data_Found">No Data Found.</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
