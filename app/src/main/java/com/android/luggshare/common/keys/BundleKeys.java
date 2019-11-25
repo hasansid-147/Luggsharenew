@@ -9,5 +9,8 @@ public class BundleKeys {
     public static final String RECEIVED_OFFER_BUNDLE = "ReceivedOfferBundle";
     public static final String EDIT_USERPROFILE_BUNDLE = "EditUserProfileBundle";
     public static final String VERIFY_USER_EMAIL = "VerifyUserEmailBundle";
+    public static final String TRACKING = "TrackingBundle";
+    public static final String TRACKING_DETAIL = "TrackingListDetailBundle";
+
 
 }

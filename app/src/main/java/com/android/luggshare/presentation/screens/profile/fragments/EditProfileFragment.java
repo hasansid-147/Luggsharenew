@@ -136,6 +136,10 @@ public class EditProfileFragment extends CoreFragment {
 
                     if (response.body().getStatus().equals("1")) {
 
+                        PreferenceManager.getInstance().put(KEY_USERNAME, edtfname.getText().toString());
+                        PreferenceManager.getInstance().put(KEY_USERLNAME,edtlname.getText().toString());
+                        PreferenceManager.getInstance().put(KEY_EMAIL, edtlname.getText().toString());
+
                         Toast.makeText(CustomApplication.getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         navigateBackFragment();
 
