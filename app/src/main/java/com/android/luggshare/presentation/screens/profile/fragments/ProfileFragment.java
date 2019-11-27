@@ -18,6 +18,8 @@ import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.EditUserProfileBundle;
+import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.ApplicationStateManager;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.application.CustomApplication;
@@ -143,14 +145,33 @@ public class ProfileFragment extends CoreFragment {
 
     @OnClick(R.id.btnedit)
     public void onEdit() {
-        replaceChildFragmentWithDelay(new EditProfileFragment(), true, false, null, true);
+
+
+        EditUserProfileBundle editUserProfileBundle = new EditUserProfileBundle();
+        editUserProfileBundle.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+        editUserProfileBundle.setFname(rspFname);
+        editUserProfileBundle.setLname(rspLname);
+        editUserProfileBundle.setEmail(rspEmail);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(BundleKeys.EDIT_USERPROFILE_BUNDLE, editUserProfileBundle);
+
+        replaceChildFragmentWithDelay(new EditProfileFragment(), true, false, bundle, true);
     }
 
 
     @OnClick(R.id.txtIsEmail)
     public void onClickIsEmail(){
         if(imgCancelEmail.getVisibility() == View.VISIBLE){
-            replaceChildFragmentWithDelay(new VerifyEmailFragment(), true, false, null, true);
+
+            EditUserProfileBundle verifyUserEmailBundle = new EditUserProfileBundle();
+            verifyUserEmailBundle.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+            verifyUserEmailBundle.setEmail(rspEmail);
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BundleKeys.VERIFY_USER_EMAIL, verifyUserEmailBundle);
+
+            replaceChildFragmentWithDelay(new VerifyEmailFragment(), true, false, bundle, true);
         }
 
     }

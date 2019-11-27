@@ -20,6 +20,8 @@ import com.android.luggshare.business.models.senderdetails.SenderDetailsRequest;
 import com.android.luggshare.business.models.senderdetails.SenderDetailsResponse;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryRequest;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryResponse;
+import com.android.luggshare.business.models.tracking.GetTrackList;
+import com.android.luggshare.business.models.tracking.TrackListResponse;
 import com.android.luggshare.business.models.traveler.TravelerRequest;
 import com.android.luggshare.business.models.traveler.TravelerResponse;
 import com.android.luggshare.business.models.travelerdetails.TravelerDetailsRequest;
@@ -157,5 +159,8 @@ public interface ApiInterface {
     @POST("offer/createoffer")
     Call<TravelerOfferResponse> sendTravelerOffer(@Body TravelerOfferRequest body);
 
+
+    @POST("track/gettracklist")
+    Call<ArrayList<TrackListResponse>> fetchTrackListData(@Body GetTrackList body);
 
 }
