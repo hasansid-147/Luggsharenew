@@ -50,7 +50,6 @@ public class MyOffersAdapter extends RecyclerView.Adapter<MyOffersAdapter.MyView
         holder.tvUsername.setText(offerObj.getTrvName());
         holder.tvArrival.setText(offerObj.getArrivalTo());
         holder.tvDeparture.setText(offerObj.getDepartingFrom());
-        holder.tvDeparture.setText(offerObj.getDepartingFrom());
         holder.tvByDate.setText(offerObj.getDelvDate());
         holder.tvStatus.setText(offerObj.getOfferStatus());
     }
