@@ -4,8 +4,10 @@ import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
 import com.android.luggshare.business.models.addcard.AddCardRequest;
 import com.android.luggshare.business.models.addcard.AddCardResponse;
-import com.android.luggshare.business.models.getmyoffersreceived.RequestMyOffersReceivedList;
-import com.android.luggshare.business.models.getmyoffersreceived.ResponseMyOffersReceivedList;
+import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListRequestModel;
+import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListResponseModel;
+import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListRequestModel;
+import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListResponseModel;
 import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.models.getsenderlist.RequestSenderList;
 import com.android.luggshare.business.models.loginservice.LoginRequest;
@@ -66,7 +68,10 @@ public interface ApiInterface {
     Call<ArrayList<ListResponse>> fetchListData(@Body RequestSenderList body);
 
     @POST("offer/offerlist_rcvd")
-    Call<ArrayList<ResponseMyOffersReceivedList>> fetchOffersData(@Body RequestMyOffersReceivedList body);
+    Call<ArrayList<MyOffersReceivedListResponseModel>> fetchReceivedOffersData(@Body MyOffersReceivedListRequestModel body);
+
+    @POST("offer/offerlist")
+    Call<ArrayList<MyOffersPendingListResponseModel>> fetchPendingOffersData(@Body MyOffersPendingListRequestModel body);
 
     @POST("dashboard/senderdetail")
     Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);

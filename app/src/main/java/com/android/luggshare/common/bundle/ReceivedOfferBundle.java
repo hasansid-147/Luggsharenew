@@ -1,7 +1,6 @@
 package com.android.luggshare.common.bundle;
 
-import com.android.luggshare.business.models.getmyoffersreceived.ResponseMyOffersReceivedList;
-import com.android.luggshare.business.models.getsenderlist.ListResponse;
+import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListResponseModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +16,7 @@ public class ReceivedOfferBundle implements Serializable {
     private String requestType;
     @SerializedName("requestObj")
     @Expose
-    private ResponseMyOffersReceivedList requestObj;
+    private MyOffersReceivedListResponseModel requestObj;
 
     public Integer getId() {
         return id;
@@ -35,11 +34,11 @@ public class ReceivedOfferBundle implements Serializable {
         this.requestType = requestType;
     }
 
-    public ResponseMyOffersReceivedList getRequestObj() {
+    public MyOffersReceivedListResponseModel getRequestObj() {
         return requestObj;
     }
 
-    public void setRequestObj(ResponseMyOffersReceivedList requestObj) {
+    public void setRequestObj(MyOffersReceivedListResponseModel requestObj) {
         this.requestObj = requestObj;
     }
 }
