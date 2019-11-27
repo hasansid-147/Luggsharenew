@@ -3,7 +3,7 @@ package com.android.luggshare.business.models.getmyoffersreceived;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RequestMyOffersReceivedList {
+public class MyOffersReceivedListRequestModel {
 
     @SerializedName("uid")
     @Expose

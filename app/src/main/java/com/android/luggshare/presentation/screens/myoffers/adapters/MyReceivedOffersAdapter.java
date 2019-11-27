@@ -8,14 +8,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.luggshare.R;
-import com.android.luggshare.business.models.getmyoffersreceived.ResponseMyOffersReceivedList;
-import com.android.luggshare.business.models.getsenderlist.ListResponse;
+import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListResponseModel;
 
 import java.util.List;
 
-public class MyOffersAdapter extends RecyclerView.Adapter<MyOffersAdapter.MyViewHolder> {
+public class MyReceivedOffersAdapter extends RecyclerView.Adapter<MyReceivedOffersAdapter.MyViewHolder> {
 
-    private List<ResponseMyOffersReceivedList> offersList;
+    private List<MyOffersReceivedListResponseModel> offersList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tvUsername, tvArrival, tvDeparture, tvByDate, tvStatus;
@@ -32,21 +31,21 @@ public class MyOffersAdapter extends RecyclerView.Adapter<MyOffersAdapter.MyView
     }
 
 
-    public MyOffersAdapter(List<ResponseMyOffersReceivedList> moviesList) {
+    public MyReceivedOffersAdapter(List<MyOffersReceivedListResponseModel> moviesList) {
         this.offersList = moviesList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_my_offers, parent, false);
+                .inflate(R.layout.row_my_offers_recieved, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        ResponseMyOffersReceivedList offerObj = offersList.get(position);
+        MyOffersReceivedListResponseModel offerObj = offersList.get(position);
         holder.tvUsername.setText(offerObj.getTrvName());
         holder.tvArrival.setText(offerObj.getArrivalTo());
         holder.tvDeparture.setText(offerObj.getDepartingFrom());

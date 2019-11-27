@@ -33,7 +33,7 @@ import retrofit2.Response;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 
 
-public class MyOfferDetailsFragment extends CoreFragment {
+public class MyReceivedOfferDetailsFragment extends CoreFragment {
 
     @BindView(R.id.tvUserName)
     TextView tvUserName;
