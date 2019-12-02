@@ -11,6 +11,8 @@ public class BundleKeys {
     public static final String VERIFY_USER_EMAIL = "VerifyUserEmailBundle";
     public static final String TRACKING = "TrackingBundle";
     public static final String TRACKING_DETAIL = "TrackingListDetailBundle";
+    public static final String VIEW_USER_REVIEWS = "ViewReviewsBundle";
+    public static final String GET_USER_PROFILE = "GetUserProfileBundle";
 
 
 }

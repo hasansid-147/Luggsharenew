@@ -21,7 +21,7 @@ public class MyTrackingAdapter extends RecyclerView.Adapter<MyTrackingAdapter.My
     private List<TrackListResponse> moviesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvItemNamevalue, tvItemTypvalue;
+        public TextView tvItemNamevalue, tvItemTypvalue,tvItemname,tvItemTyp;
         public ImageView img_icon;
 
         public MyViewHolder(View view) {
@@ -29,6 +29,9 @@ public class MyTrackingAdapter extends RecyclerView.Adapter<MyTrackingAdapter.My
 
             tvItemNamevalue = (TextView) view.findViewById(R.id.tvItemNamevalue);
             tvItemTypvalue = (TextView) view.findViewById(R.id.tvItemTypvalue);
+            tvItemname = (TextView) view.findViewById(R.id.tvItemname);
+            tvItemTyp = (TextView) view.findViewById(R.id.tvItemTyp);
+
             img_icon = (ImageView) view.findViewById(R.id.img_icon);
         }
     }

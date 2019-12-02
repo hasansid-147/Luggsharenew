@@ -209,7 +209,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
                 }
             }
 

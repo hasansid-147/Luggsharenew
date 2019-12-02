@@ -36,6 +36,8 @@ import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
+import com.android.luggshare.business.models.userreviews.GetReviews;
+import com.android.luggshare.business.models.userreviews.ReviewsListReponse;
 
 import java.util.ArrayList;
 
@@ -162,5 +164,11 @@ public interface ApiInterface {
 
     @POST("track/gettracklist")
     Call<ArrayList<TrackListResponse>> fetchTrackListData(@Body GetTrackList body);
+
+
+
+
+    @POST("reviews/getreviews")
+    Call<ArrayList<ReviewsListReponse>> fetchAllReviews(@Body GetReviews body);
 
 }

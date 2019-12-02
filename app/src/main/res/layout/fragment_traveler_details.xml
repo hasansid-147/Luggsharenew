@@ -14,6 +14,7 @@
         android:orientation="vertical"
         android:padding="@dimen/_5sdp"
         android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/edittext_rounded_corners"
         android:layout_centerHorizontal="true"
         >
 
@@ -150,7 +151,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Baggage Item"
+            android:text="Preffered Baggage Item"
             android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"

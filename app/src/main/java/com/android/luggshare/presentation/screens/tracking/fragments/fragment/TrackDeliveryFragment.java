@@ -55,18 +55,34 @@ public class TrackDeliveryFragment extends CoreFragment {
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.fragment_my_tracking;
+        return R.layout.fragment_track_my__delivery;
+
+
     }
 
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+
+        if (getArguments() != null) {
+            trackingBundle = (TrackingBundle) getArguments().getSerializable(BundleKeys.TRACKING);
+        }
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
-        trackingBundle =  new TrackingBundle();
+
+
+        //trackingBundle =  new TrackingBundle();
         int uid = trackingBundle.getUid();
         int trackingas  = trackingBundle.getTrackingas();
+
+
 
 
         fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID), trackingas);
@@ -110,7 +126,7 @@ public class TrackDeliveryFragment extends CoreFragment {
                     if (mAdapter != null)
                         mAdapter.clear();
 
-                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
                 }
 
             }
