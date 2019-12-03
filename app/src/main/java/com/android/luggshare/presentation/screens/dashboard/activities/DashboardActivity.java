@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -18,11 +19,15 @@ import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.constants.IsDashboard;
 import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
+import com.android.luggshare.common.managers.ApplicationStateManager;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.activities.CoreActivity;
+import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.Notifications.MyNotificationFragment;
 import com.android.luggshare.presentation.screens.cards.fragments.MyPaymentFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.login.activities.LoginActivity;
 import com.android.luggshare.presentation.screens.myoffers.fragments.MyOffersFragment;
 import com.android.luggshare.presentation.screens.myrequests.fragments.MyRequestFragment;
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
@@ -105,11 +110,29 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         replaceChildFragmentWithDelay(R.id.content_area, new MyTrackingFragment(), true, false, null, true);
                         break;
                     case R.id.nav_notifications:
-                        replaceChildFragmentWithDelay(R.id.content_area, null, true, false, null, true);
+                        replaceChildFragmentWithDelay(R.id.content_area, new MyNotificationFragment(), true, false, null, true);
                         break;
                     case R.id.nav_payment:
                         replaceChildFragmentWithDelay(R.id.content_area, new MyPaymentFragment(), true, false, null, true);
                         break;
+
+                    case R.id.nav_logout:
+
+                        PreferenceManager.getInstance().clear();
+
+                        ApplicationStateManager.getInstance().setIsAuthenticated(false);
+
+                        // After logout redirect user to Loing Activity
+                        Intent i = new Intent(CustomApplication.getContext(), LoginActivity.class);
+                        // Closing all the Activities
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                        // Add new Flag to start new Activity
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                        // Staring Login Activity
+                        CustomApplication.getContext().startActivity(i);
+
 
                     default:
                         return true;

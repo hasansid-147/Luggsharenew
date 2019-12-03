@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,12 +17,15 @@ import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
+import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.cards.fragments.AddCardFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.utils.UiHelper;
 
 import butterknife.BindView;
@@ -56,6 +60,10 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
     @BindView(R.id.btnAcceptOffer)
     Button btnAcceptOffer;
 
+    @BindView(R.id.rlUsername)
+    RelativeLayout rlUsername;
+
+    GetUserProfileBundle getUserProfileBundle;
     ReceivedOfferBundle receivedOfferBundle;
 
     @Override
@@ -148,4 +156,18 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
 
     }
 
+    @OnClick(R.id.rlUsername)
+    public void LoadUserProfile() {
+
+        IsPreferenceProfile isprefuser = IsPreferenceProfile.getInstance();
+        isprefuser.setData(false);
+        getUserProfileBundle = new GetUserProfileBundle();
+        getUserProfileBundle.setUid(receivedOfferBundle.getRequestObj().getTrvId());
+        getUserProfileBundle.setEmail(null);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(BundleKeys.GET_USER_PROFILE, getUserProfileBundle);
+        replaceChildFragmentWithDelay(new ProfileFragment(), true, false, bundle, true);
+
+    }
 }

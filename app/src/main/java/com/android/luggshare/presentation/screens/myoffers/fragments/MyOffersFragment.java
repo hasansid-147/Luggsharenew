@@ -21,6 +21,7 @@ import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceive
 import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.PendingOfferBundle;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
@@ -56,6 +57,7 @@ public class MyOffersFragment extends CoreFragment {
     private MyReceivedOffersAdapter mReceivedAdapter;
     private MyPendingOffersAdapter mPendingAdapter;
     ReceivedOfferBundle receivedOfferBundle;
+    PendingOfferBundle pendingOfferBundle;
 
     @Override
     protected int getLayoutResourceId() {
@@ -68,6 +70,7 @@ public class MyOffersFragment extends CoreFragment {
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
         receivedOfferBundle = new ReceivedOfferBundle();
+        pendingOfferBundle =  new PendingOfferBundle();
 
         tvReceived.setBackgroundResource(R.drawable.border_curved_selected);
 
@@ -223,23 +226,19 @@ public class MyOffersFragment extends CoreFragment {
             public void onClick(View view, int position) {
                 try {
 
-                    /*MyOffersReceivedListResponseModel respObj = arrayList.get(position);
+                    MyOffersPendingListResponseModel respObj = arrayList.get(position);
 
-                    receivedOfferBundle.setRequestType(respObj.getReqType());
-                    receivedOfferBundle.setRequestObj(respObj);
+                    if (respObj.getOfferStatus().toLowerCase().equals("expired")) {
+                        Toast.makeText(getContext(), "Offer is not valid any more!.", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable(BundleKeys.MY_REQUEST_BUNDLE, receivedOfferBundle);
+                        pendingOfferBundle.setRequestObj(respObj);
 
-                    if (receivedOfferBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_SENDER)) {
-                        replaceChildFragmentWithDelay(new SenderDetailsFragment(), false, true, bundle, true);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(BundleKeys.PENDING_OFFER_BUNDLE, pendingOfferBundle);
 
-                    } else if (receivedOfferBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
-                        replaceChildFragmentWithDelay(new TravelerDetailsFragment(), false, true, bundle, true);
+                        replaceChildFragmentWithDelay(new MyPendingOfferDetailsFragment(), false, true, bundle, true);
                     }
-                    if (receivedOfferBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
-
-                    }*/
 
                 } catch (Exception e) {
                     e.printStackTrace();

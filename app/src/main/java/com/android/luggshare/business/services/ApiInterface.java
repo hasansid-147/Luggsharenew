@@ -1,5 +1,7 @@
 package com.android.luggshare.business.services;
 
+import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatus;
+import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatusResponse;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
 import com.android.luggshare.business.models.addcard.AddCardRequest;
@@ -12,6 +14,8 @@ import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.models.getsenderlist.RequestSenderList;
 import com.android.luggshare.business.models.loginservice.LoginRequest;
 import com.android.luggshare.business.models.loginservice.LoginResponse;
+import com.android.luggshare.business.models.notifications.GetNotifications;
+import com.android.luggshare.business.models.notifications.NotificationReponse;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryRequest;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryResponse;
 import com.android.luggshare.business.models.registrationservice.SignUpResponse;
@@ -36,6 +40,7 @@ import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
+import com.android.luggshare.business.models.userreviews.AddReviews;
 import com.android.luggshare.business.models.userreviews.GetReviews;
 import com.android.luggshare.business.models.userreviews.ReviewsListReponse;
 
@@ -165,10 +170,20 @@ public interface ApiInterface {
     @POST("track/gettracklist")
     Call<ArrayList<TrackListResponse>> fetchTrackListData(@Body GetTrackList body);
 
+    @POST("notification/get")
+    Call<ArrayList<NotificationReponse>> fetchNotifications(@Body GetNotifications body);
+
 
 
 
     @POST("reviews/getreviews")
     Call<ArrayList<ReviewsListReponse>> fetchAllReviews(@Body GetReviews body);
+
+    @POST("reviews/addreviews")
+    Call<String> AddReviews(@Body AddReviews body);
+
+
+    @POST("payment/delconf")
+    Call<UpdateOfferStatusResponse> deliveryConfirm(@Body UpdateOfferStatus body);
 
 }

@@ -30,7 +30,7 @@
         android:layout_alignParentBottom="true"
         android:text="Arrival"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_10sdp" />
 
     <TextView
         android:id="@+id/txtArrival"
@@ -50,7 +50,7 @@
         android:layout_alignParentStart="true"
         android:text="Item"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_13sdp" />
 
     <TextView
         android:id="@+id/txtItem"
@@ -80,7 +80,7 @@
         android:layout_alignParentEnd="true"
         android:text="By Date"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_10sdp" />
 
     <TextView
         android:id="@+id/tvStatus"
@@ -110,7 +110,7 @@
         android:layout_alignParentEnd="true"
         android:text="departure date"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14ssp" />
+        android:textSize="@dimen/_10ssp" />
 
     <TextView
         android:id="@+id/txtDeparture"

@@ -246,4 +246,17 @@
     <string name="open">Open</string>
     <string name="close">close</string>
 
+
+    <!-- region status drop down -->
+
+
+    <string-array name="status_arrays">
+        <item>Collected</item>
+        <item>Completed</item>
+
+    </string-array>
+
+    <!-- endregion status drop down -->
+
+
 </resources>

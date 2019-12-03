@@ -111,6 +111,10 @@ public class ProfileFragment extends CoreFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
+
         if (getArguments() != null) {
             getUserProfileBundle = (GetUserProfileBundle) getArguments().getSerializable(BundleKeys.GET_USER_PROFILE);
         }
@@ -119,6 +123,12 @@ public class ProfileFragment extends CoreFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
+
+        View rootview = super.onCreateView(inflater, container, savedInstanceState);
+
+        getUserProfile();
 
         IsPreferenceProfile isprefuser = IsPreferenceProfile.getInstance();
         boolean isPrefUser = isprefuser.getData();
@@ -135,11 +145,6 @@ public class ProfileFragment extends CoreFragment {
 
         }
 
-
-        View rootview = super.onCreateView(inflater, container, savedInstanceState);
-
-        getUserProfile();
-
         return rootview;
     }
 
@@ -147,7 +152,7 @@ public class ProfileFragment extends CoreFragment {
     @OnClick(R.id.btnLogout)
     public void onLoginClicked() {
 
-        PreferenceManager.getInstance().clear();
+        /*PreferenceManager.getInstance().clear();
 
         ApplicationStateManager.getInstance().setIsAuthenticated(false);
 
@@ -160,7 +165,7 @@ public class ProfileFragment extends CoreFragment {
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         // Staring Login Activity
-        CustomApplication.getContext().startActivity(i);
+        CustomApplication.getContext().startActivity(i);*/
 
 
 
