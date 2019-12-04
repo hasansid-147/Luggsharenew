@@ -52,6 +52,9 @@ public class TravelerDetailsFragment extends CoreFragment {
     @BindView(R.id.tvBaggage)
     TextView tvBaggage;
 
+    @BindView(R.id.tvBagcap)
+    TextView tvBagcap;
+
     @BindView(R.id.tvStatus)
     TextView tvStatus;
 
@@ -137,7 +140,8 @@ public class TravelerDetailsFragment extends CoreFragment {
             tvArrival.setText(resp.getArrvToCity() + ", " + resp.getArrvToCountry());
             tvDepDate.setText(resp.getDepTime());
             tvExpArrival.setText(resp.getExpArrvTime());
-            tvBaggage.setText(resp.getBagCap() + "");
+            tvBaggage.setText(resp.getCategories() + "");
+            tvBagcap.setText(resp.getBagCap() + "");
             tvStatus.setText(resp.getReqstatus());
 
             if (Integer.parseInt(resp.getOfferstatus()) == 1) {

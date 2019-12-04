@@ -7,7 +7,14 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     >
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+
+        android:background="@drawable/edittext_rounded_corners"
+        android:layout_marginTop="@dimen/_10sdp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +69,7 @@
                 <EditText
                     android:id="@+id/edtItemUrl"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_below="@+id/imgPackage"
                     android:background="@drawable/edittext_rounded_corners"
                     android:drawableEnd="@drawable/icon_world"
@@ -70,10 +77,11 @@
                     android:imeOptions="actionNext"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:padding="@dimen/_5sdp"
-                    android:singleLine="true"
+
                     android:textColor="@color/colorBlack"
                     android:textColorHint="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal"/>
 
 
                 <EditText
@@ -190,6 +198,8 @@
         </ScrollView>
 
     </RelativeLayout>
+    </ScrollView>
+
 
 
 

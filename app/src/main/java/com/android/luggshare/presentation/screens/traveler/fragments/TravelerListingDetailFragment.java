@@ -66,6 +66,9 @@ public class TravelerListingDetailFragment extends CoreFragment {
     @BindView(R.id.tvDeliverTo)
     TextView tvDeliverTo;
 
+    @BindView(R.id.tvUrl)
+    TextView tvUrl;
+
     @BindView(R.id.tvReward)
     TextView tvReward;
 
@@ -132,6 +135,7 @@ public class TravelerListingDetailFragment extends CoreFragment {
         tvWeight.setText("KG " + travelerObj.getWeight() + "");
         tvSize.setText(travelerObj.getSize() + "");
         tvUsername.setText(travelerObj.getUsername() + "");
+        tvUrl.setText(travelerObj.getUrl()+ "");
         tvRate.setText("0");
         UiHelper.setImageWithGlide(getActivity(), imgPackage, BASE_IMG_PATH + travelerObj.getImagename());
 

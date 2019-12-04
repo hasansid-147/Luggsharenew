@@ -188,10 +188,10 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
                 onSearchCalled();
                 break;
 
-            case R.id.edtDeliverTo:
+            /*case R.id.edtDeliverTo:
                 currentEditableViewId = edtDeliverTo.getId();
                 onSearchCalled();
-                break;
+                break;*/
         }
 
     }
@@ -210,7 +210,7 @@ public class PurchaserDeliveryFragment extends CoreFragment implements onPickDat
 
                 if (currentEditableViewId == edtDeliverFrom.getId()) {
                     edtDeliverFrom.setText(getCurrentAddress(place.getLatLng().latitude, place.getLatLng().longitude));
-                } else {
+                } else if (currentEditableViewId == edtDeliverTo.getId())  {
                     edtDeliverTo.setText(getCurrentAddress(place.getLatLng().latitude, place.getLatLng().longitude));
 
                 }

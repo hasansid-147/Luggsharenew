@@ -4,8 +4,12 @@ import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatus
 import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatusResponse;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.addaccount.AddAccountRequest;
+import com.android.luggshare.business.models.addaccount.AddAccountResponse;
 import com.android.luggshare.business.models.addcard.AddCardRequest;
 import com.android.luggshare.business.models.addcard.AddCardResponse;
+import com.android.luggshare.business.models.editoffer.EditOfferReponse;
+import com.android.luggshare.business.models.editoffer.EditOfferRequest;
 import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListRequestModel;
 import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListResponseModel;
 import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListRequestModel;
@@ -85,8 +89,14 @@ public interface ApiInterface {
     @POST("dashboard/senderdetail")
     Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);
 
+    @POST("offer/editoffer")
+    Call<EditOfferReponse> editOffer(@Body EditOfferRequest body);
+
     @POST("offer/acceptoffer")
     Call<OfferAcceptResponse> acceptOffer(@Body OfferAcceptRequest body);
+
+    @POST("payment/addacc")
+    Call<AddAccountResponse> addAccount(@Body AddAccountRequest body);
 
     @POST("payment/addcrc")
     Call<AddCardResponse> addCard(@Body AddCardRequest body);

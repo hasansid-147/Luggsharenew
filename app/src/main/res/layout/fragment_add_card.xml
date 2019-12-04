@@ -141,7 +141,7 @@
             android:layout_marginRight="@dimen/_200sdp"
             android:background="@drawable/edittext_rounded_corners"
             android:hint="CVV"
-            android:imeOptions="actionNext"
+
             android:padding="@dimen/_5sdp"
             android:singleLine="true"
             android:maxLength="3"

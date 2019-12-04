@@ -166,6 +166,25 @@
             android:textColor="@color/colorBlack"
             />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baggage Capacity"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/colorGrey"
+            />
+
+        <TextView
+            android:id="@+id/tvBagcap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baggage capacity"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/colorBlack"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

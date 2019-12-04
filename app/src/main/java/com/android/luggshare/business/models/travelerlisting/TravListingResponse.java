@@ -15,7 +15,7 @@ public class TravListingResponse implements Serializable {
     private String username;
     @SerializedName("userimage")
     @Expose
-    private Object userimage;
+    private String userimage;
     @SerializedName("userreq")
     @Expose
     private Integer userreq;
@@ -39,7 +39,7 @@ public class TravListingResponse implements Serializable {
     private String reqtype;
     @SerializedName("size")
     @Expose
-    private String size;
+    private Object size;
     @SerializedName("weight")
     @Expose
     private Double weight;
@@ -49,9 +49,6 @@ public class TravListingResponse implements Serializable {
     @SerializedName("prodimage")
     @Expose
     private String prodimage;
-    @SerializedName("delv_date")
-    @Expose
-    private String delvDate;
     @SerializedName("imagename2")
     @Expose
     private String imagename2;
@@ -61,6 +58,59 @@ public class TravListingResponse implements Serializable {
     @SerializedName("url")
     @Expose
     private String url;
+    @SerializedName("delv_date")
+    @Expose
+    private String delvDate;
+
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public TravListingResponse() {
+    }
+
+    /**
+     *
+     * @param imagename2
+     * @param userreq
+     * @param weight
+     * @param prodimage2
+     * @param prodname
+     * @param delvDate
+     * @param prodimage
+     * @param url
+     * @param frmlocation
+     * @param uid
+     * @param tolocation
+     * @param size
+     * @param imagename
+     * @param userimage
+     * @param price
+     * @param reqtype
+     * @param bringersReward
+     * @param username
+     */
+    public TravListingResponse(Integer uid, String username, String userimage, Integer userreq, String prodname, String frmlocation, String tolocation, Double bringersReward, Double price, String reqtype, Object size, Double weight, String imagename, String prodimage, String imagename2, String prodimage2, String url, String delvDate) {
+        super();
+        this.uid = uid;
+        this.username = username;
+        this.userimage = userimage;
+        this.userreq = userreq;
+        this.prodname = prodname;
+        this.frmlocation = frmlocation;
+        this.tolocation = tolocation;
+        this.bringersReward = bringersReward;
+        this.price = price;
+        this.reqtype = reqtype;
+        this.size = size;
+        this.weight = weight;
+        this.imagename = imagename;
+        this.prodimage = prodimage;
+        this.imagename2 = imagename2;
+        this.prodimage2 = prodimage2;
+        this.url = url;
+        this.delvDate = delvDate;
+    }
 
     public Integer getUid() {
         return uid;
@@ -78,11 +128,11 @@ public class TravListingResponse implements Serializable {
         this.username = username;
     }
 
-    public Object getUserimage() {
+    public String getUserimage() {
         return userimage;
     }
 
-    public void setUserimage(Object userimage) {
+    public void setUserimage(String userimage) {
         this.userimage = userimage;
     }
 
@@ -142,11 +192,11 @@ public class TravListingResponse implements Serializable {
         this.reqtype = reqtype;
     }
 
-    public String getSize() {
+    public Object getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(Object size) {
         this.size = size;
     }
 
@@ -172,6 +222,30 @@ public class TravListingResponse implements Serializable {
 
     public void setProdimage(String prodimage) {
         this.prodimage = prodimage;
+    }
+
+    public String getImagename2() {
+        return imagename2;
+    }
+
+    public void setImagename2(String imagename2) {
+        this.imagename2 = imagename2;
+    }
+
+    public String getProdimage2() {
+        return prodimage2;
+    }
+
+    public void setProdimage2(String prodimage2) {
+        this.prodimage2 = prodimage2;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getDelvDate() {

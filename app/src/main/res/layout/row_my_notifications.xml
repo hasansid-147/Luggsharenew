@@ -28,7 +28,7 @@
 
             android:fontFamily="sans-serif-medium"
             android:textColor="#212121"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_11ssp"
             android:textStyle="normal"
             tools:text="Item Name:" />
 
