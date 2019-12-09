@@ -8,10 +8,34 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <RelativeLayout
+        android:id="@+id/rlrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btnRate"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Rate User"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@drawable/ic_star_yellow"
+            android:layout_alignParentRight="true"
+
+            />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/llMainContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rlrate"
         android:orientation="vertical"
         android:padding="@dimen/_5sdp"
         android:layout_margin="@dimen/_15sdp"
@@ -306,10 +330,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:text="status"
-                android:textSize="@dimen/_10ssp"
-                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp"
+
+                android:textStyle="italic|bold"
+                android:textColor="#0b74a5"
                 />
 
 
@@ -335,7 +361,7 @@
         />
     <Spinner
         android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_120sdp"
         android:layout_below="@+id/btnAcceptOffer"
         android:background="@drawable/edittext_rounded_corners"
         android:layout_marginTop="@dimen/_5sdp"

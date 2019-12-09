@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,11 +27,14 @@ import com.android.luggshare.business.models.traveleroffer.TravelerOfferResponse
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.EditUserProfileBundle;
+import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.bundle.PendingOfferBundle;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
+import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.utils.UiHelper;
 
 import androidx.annotation.NonNull;
@@ -79,14 +83,16 @@ public class MyPendingOfferDetailsFragment extends CoreFragment {
 
     @BindView(R.id.tvOfferstatus)
     TextView tvOfferstatus;
+    @BindView(R.id.btnRate)
+    Button btnRate;
+
 
     @BindView(R.id.btnedit)
     ImageView btnedit;
     String TAG = "DeliveryConfirmation";
 
 
-
-
+    GetUserProfileBundle getUserProfileBundle;
     PendingOfferBundle pendingOfferBundle;
     @Override
     protected int getLayoutResourceId() {
@@ -114,9 +120,18 @@ public class MyPendingOfferDetailsFragment extends CoreFragment {
         spinner1.setAdapter(spinnerArrayAdapter);
         spinner1.setPrompt(pendingOfferBundle.getRequestObj().getOfferStatus());
 
-
-
         initDetails(pendingOfferBundle);
+
+        if(pendingOfferBundle.getRequestObj().getOfferStatus().equalsIgnoreCase("COMPLETED")){
+
+            btnRate.setVisibility(View.VISIBLE);
+            btnRate.setEnabled(true);
+
+        }
+        else {
+            btnRate.setVisibility(View.GONE);
+            btnRate.setEnabled(false);
+        }
 
 
         return rootview;
@@ -348,6 +363,21 @@ public class MyPendingOfferDetailsFragment extends CoreFragment {
 
 
 
+
+    }
+
+    @OnClick(R.id.rlUsername)
+    public void LoadUserProfile() {
+
+        IsPreferenceProfile isprefuser = IsPreferenceProfile.getInstance();
+        isprefuser.setData(false);
+        getUserProfileBundle = new GetUserProfileBundle();
+        getUserProfileBundle.setUid(pendingOfferBundle.getRequestObj().getRcvId());
+        getUserProfileBundle.setEmail(null);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(BundleKeys.GET_USER_PROFILE, getUserProfileBundle);
+        replaceChildFragmentWithDelay(new ProfileFragment(), true, false, bundle, true);
 
     }
 }

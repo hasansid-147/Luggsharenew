@@ -17,6 +17,9 @@ public class AddReviews {
     @SerializedName("comments")
     @Expose
     private String comments;
+    @SerializedName("offerid")
+    @Expose
+    private Integer offerid;
 
     /**
      * No args constructor for use in serialization
@@ -70,6 +73,14 @@ public class AddReviews {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public Integer getOfferid() {
+        return offerid;
+    }
+
+    public void setOfferid(Integer offerid) {
+        this.offerid = offerid;
     }
 
 }

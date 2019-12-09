@@ -45,6 +45,7 @@ import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.models.userreviews.AddReviews;
+import com.android.luggshare.business.models.userreviews.AddReviewsReponse;
 import com.android.luggshare.business.models.userreviews.GetReviews;
 import com.android.luggshare.business.models.userreviews.ReviewsListReponse;
 
@@ -190,7 +191,7 @@ public interface ApiInterface {
     Call<ArrayList<ReviewsListReponse>> fetchAllReviews(@Body GetReviews body);
 
     @POST("reviews/addreviews")
-    Call<String> AddReviews(@Body AddReviews body);
+    Call<AddReviewsReponse> AddReviews(@Body AddReviews body);
 
 
     @POST("payment/delconf")

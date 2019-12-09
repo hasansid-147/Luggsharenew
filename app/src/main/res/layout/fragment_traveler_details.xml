@@ -175,7 +175,9 @@
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
         <TextView
             android:id="@+id/tvBagcap"
             android:layout_width="wrap_content"
@@ -184,6 +186,17 @@
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/colorBlack"
             />
+        <TextView
+            android:id="@+id/txtBagCap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/tvBagcap"
+            android:text="KG"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/colorGrey"
+            />
+</RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"

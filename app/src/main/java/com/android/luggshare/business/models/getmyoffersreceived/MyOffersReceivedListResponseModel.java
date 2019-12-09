@@ -50,6 +50,9 @@ public class MyOffersReceivedListResponseModel {
     @SerializedName("offer_Status")
     @Expose
     private String offerStatus;
+    @SerializedName("is_rated")
+    @Expose
+    private Integer isRated;
 
     public String getTrvName() {
         return trvName;
@@ -169,5 +172,13 @@ public class MyOffersReceivedListResponseModel {
 
     public void setOfferStatus(String offerStatus) {
         this.offerStatus = offerStatus;
+    }
+
+    public Integer getIsRated() {
+        return isRated;
+    }
+
+    public void setIsRated(Integer isRated) {
+        this.isRated = isRated;
     }
 }

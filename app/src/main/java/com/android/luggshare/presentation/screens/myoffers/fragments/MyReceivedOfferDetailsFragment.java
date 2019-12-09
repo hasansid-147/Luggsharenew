@@ -1,11 +1,16 @@
 package com.android.luggshare.presentation.screens.myoffers.fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,8 +18,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.android.luggshare.R;
+import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatusResponse;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.userreviews.AddReviews;
+import com.android.luggshare.business.models.userreviews.AddReviewsReponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.GetUserProfileBundle;
@@ -28,6 +36,7 @@ import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeF
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.utils.UiHelper;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 import retrofit2.Call;
@@ -57,14 +66,22 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
     @BindView(R.id.tvOffer)
     TextView tvOffer;
 
+    @BindView(R.id.tvOfferstatus)
+    TextView tvOfferstatus;
+
     @BindView(R.id.btnAcceptOffer)
     Button btnAcceptOffer;
+
+    @BindView(R.id.btnRate)
+    Button btnRate;
 
     @BindView(R.id.rlUsername)
     RelativeLayout rlUsername;
 
     GetUserProfileBundle getUserProfileBundle;
     ReceivedOfferBundle receivedOfferBundle;
+
+    String TAG_RATE = "UserRatingNew";
 
     @Override
     protected int getLayoutResourceId() {
@@ -88,6 +105,31 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
 
         initDetails(receivedOfferBundle);
 
+        if(receivedOfferBundle.getRequestObj().getOfferStatus().equalsIgnoreCase("COMPLETED")){
+
+            btnRate.setVisibility(View.VISIBLE);
+            btnRate.setEnabled(true);
+
+        }
+        else {
+            btnRate.setVisibility(View.GONE);
+            btnRate.setEnabled(false);
+        }
+
+        if(receivedOfferBundle.getRequestObj().getOfferStatus().equalsIgnoreCase("COMPLETED") && receivedOfferBundle.getRequestObj().getIsRated() ==0 ){
+
+            initRateDialog();
+
+        }
+
+        if(!receivedOfferBundle.getRequestObj().getOfferStatus().equalsIgnoreCase("ACTIVE")){
+
+
+            btnAcceptOffer.setEnabled(false);
+            btnAcceptOffer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.gray));
+
+        }
+
 
         return rootview;
     }
@@ -100,6 +142,7 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
         tvTravelingTo.setText(resp.getRequestObj().getArrivalTo());
         tvArrivalDate.setText(resp.getRequestObj().getArrivDate());
         tvOffer.setText(resp.getRequestObj().getOfferPrice() + " PKR");
+        tvOfferstatus.setText(resp.getRequestObj().getOfferStatus());
 
     }
 
@@ -170,4 +213,100 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
         replaceChildFragmentWithDelay(new ProfileFragment(), true, false, bundle, true);
 
     }
+
+
+    public void initRateDialog(){
+
+        final Dialog offerDialog = new Dialog(getContext());
+        offerDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        offerDialog.setCancelable(false);
+        offerDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        offerDialog.setContentView(R.layout.dialog_rate_user);
+
+        ImageView dialogButton = (ImageView) offerDialog.findViewById(R.id.imgClose);
+        final EditText edtOffer = (EditText) offerDialog.findViewById(R.id.edtOffer);
+        final RatingBar ratingBar = (RatingBar) offerDialog.findViewById(R.id.ratingBar);
+        Button btnSubmit = (Button) offerDialog.findViewById(R.id.btnSubmit);
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ratingBar.getRating() == 0.0) {
+
+                    return;
+                }else{
+
+                    int rate = ((int)ratingBar.getRating());
+                    String text = edtOffer.getText().toString();
+
+                    rateUser(rate,text);
+                    offerDialog.dismiss();
+
+                }
+
+            }
+
+        });
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                offerDialog.dismiss();
+            }
+        });
+
+
+        offerDialog.show();
+
+
+    }
+
+
+    private void rateUser(int rating ,String text){
+
+        AddReviews addReviews = new AddReviews();
+
+        addReviews.setUid(receivedOfferBundle.getRequestObj().getTrvId());
+        addReviews.setFromuid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+        addReviews.setRating(rating);
+        addReviews.setComments(text);
+        addReviews.setOfferid(receivedOfferBundle.getRequestObj().getOfferId());
+
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<AddReviewsReponse> call = apiService.AddReviews(addReviews);
+        call.enqueue(new Callback<AddReviewsReponse>() {
+            @Override
+            public void onResponse(Call<AddReviewsReponse> call, Response<AddReviewsReponse> response) {
+                Log.d(TAG_RATE, "issuccessfull: " + response.isSuccessful());
+                Log.d(TAG_RATE, "Status" + response.toString());
+                Log.d(TAG_RATE, "RESPONSE:" + response.body());
+
+
+                UiHelper.getInstance().hideLoadingIndicator();
+
+                if (response.isSuccessful()) {
+
+                    Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
+                } else {
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<AddReviewsReponse> call, Throwable t) {
+                Log.e(TAG_RATE, t.toString());
+                UiHelper.getInstance().hideLoadingIndicator();
+            }
+        });
+
+
+
+
+
+    }
+
+
 }

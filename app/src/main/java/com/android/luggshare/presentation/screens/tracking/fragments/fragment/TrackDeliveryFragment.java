@@ -197,7 +197,7 @@ public class TrackDeliveryFragment extends CoreFragment {
         rvTrackDelv.setItemAnimator(new DefaultItemAnimator());
         rvTrackDelv.setAdapter(mAdapter);
 
-        rvUpdDelv.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvTrackDelv, new RecyclerTouchListener.ClickListener() {
+        rvTrackDelv.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvTrackDelv, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 try {
