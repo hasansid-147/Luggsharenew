@@ -204,7 +204,7 @@ public class TrackDeliveryFragment extends CoreFragment {
 
                     TrackListResponse respObj = arrayList.get(position);
 
-                    trackingListDetailBundle.setOfferId(respObj.getOfferId());
+                    trackingListDetailBundle.setOfferId(respObj.getOfferId().intValue());
                     trackingListDetailBundle.setReqTyp(respObj.getReqTyp());
                     trackingListDetailBundle.setDeliveryname(respObj.getDeliveryname());
                     trackingListDetailBundle.setTraveleruid(respObj.getTraveleruid());

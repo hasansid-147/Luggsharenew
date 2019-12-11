@@ -25,6 +25,7 @@ import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestSenderAdapter;
 import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestTravelrAdapter;
+import com.android.luggshare.presentation.screens.purchaser.fragments.PurchaserDetailFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderDetailsFragment;
 import com.android.luggshare.presentation.screens.traveler.fragments.TravelerDetailsFragment;
 import com.android.luggshare.utils.RecyclerTouchListener;
@@ -253,7 +254,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                         replaceChildFragmentWithDelay(new TravelerDetailsFragment(), false, true, bundle, true);
                     }
                     if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
-
+                        replaceChildFragmentWithDelay(new PurchaserDetailFragment(), false, true, bundle, true);
                     }
 
                 } catch (Exception e) {

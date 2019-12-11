@@ -93,6 +93,9 @@ public class ProfileFragment extends CoreFragment {
     @BindView(R.id.txtIsEmail)
     RelativeLayout txtIsEmail;
 
+    @BindView(R.id.txtIsSocial)
+    RelativeLayout txtIsSocial;
+
     GetUserProfileBundle getUserProfileBundle;
 
 
@@ -142,6 +145,8 @@ public class ProfileFragment extends CoreFragment {
             btnLogout.setEnabled(false);
 
             txtIsEmail.setClickable(false);
+
+            txtIsSocial.setClickable(false);
 
         }
 
@@ -202,6 +207,17 @@ public class ProfileFragment extends CoreFragment {
             bundle.putSerializable(BundleKeys.VERIFY_USER_EMAIL, verifyUserEmailBundle);
 
             replaceChildFragmentWithDelay(new VerifyEmailFragment(), true, false, bundle, true);
+        }
+
+    }
+
+    @OnClick(R.id.txtIsSocial)
+    public void onClickIsSocial(){
+        if(imgCancelsocial.getVisibility() == View.VISIBLE){
+
+
+
+            replaceChildFragmentWithDelay(new SocialConnectFragment(), true, false, null, true);
         }
 
     }

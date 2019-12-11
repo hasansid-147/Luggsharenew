@@ -20,6 +20,8 @@ import com.android.luggshare.business.models.loginservice.LoginRequest;
 import com.android.luggshare.business.models.loginservice.LoginResponse;
 import com.android.luggshare.business.models.notifications.GetNotifications;
 import com.android.luggshare.business.models.notifications.NotificationReponse;
+import com.android.luggshare.business.models.purchaserdetails.PurchaserDetailsReponse;
+import com.android.luggshare.business.models.purchaserdetails.PurchaserDetailsRequest;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryRequest;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryResponse;
 import com.android.luggshare.business.models.registrationservice.SignUpResponse;
@@ -143,6 +145,9 @@ public interface ApiInterface {
 
     @POST("Summary/purchaser")
     Call<PurchaserSummaryResponse> getpurchaserPricing(@Body PurchaserSummaryRequest body);
+
+    @POST("dashboard/purchaserdetail")
+    Call<PurchaserDetailsReponse> fetchPurchaserDetails(@Body PurchaserDetailsRequest body);
 
 
     @Multipart

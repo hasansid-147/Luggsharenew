@@ -193,8 +193,8 @@
     <string name="com_facebook_loading">Loading</string>
     <string name="connection_lost">Internet Not Found</string>
 
-    <string name="facebook_app_id">751557128367589</string>
-    <string name="fb_login_protocol_scheme">fb751557128367589</string>
+    <!--<string name="facebook_app_id">751557128367589</string>
+    <string name="fb_login_protocol_scheme">fb751557128367589</string>-->
 
     <string name="google_map_key">AIzaSyAxolGbO__SpLg3P4r3OaKAYgt2Xs6v89Q</string>
     <!--<string name="google_map_key">AIzaSyDXeSFBHghHd4A8T4GML-7hyOWokC38PR8</string>-->
@@ -245,6 +245,9 @@
     <string name="menu_send">Send</string>
     <string name="open">Open</string>
     <string name="close">close</string>
+
+    <string name="facebook_app_id">704046476670171</string>
+    <string name="fb_login_protocol_scheme">fb704046476670171</string>
 
 
     <!-- region status drop down -->
