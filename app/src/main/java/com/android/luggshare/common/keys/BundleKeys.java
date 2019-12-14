@@ -10,6 +10,7 @@ public class BundleKeys {
     public static final String PENDING_OFFER_BUNDLE = "PendingOfferBundle";
     public static final String EDIT_USERPROFILE_BUNDLE = "EditUserProfileBundle";
     public static final String VERIFY_USER_EMAIL = "VerifyUserEmailBundle";
+    public static final String VIEW_USER_PHONE = "ViewUserPhoneBundle";
     public static final String TRACKING = "TrackingBundle";
     public static final String TRACKING_DETAIL = "TrackingListDetailBundle";
     public static final String VIEW_USER_REVIEWS = "ViewReviewsBundle";

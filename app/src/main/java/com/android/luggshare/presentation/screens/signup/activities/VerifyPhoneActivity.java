@@ -151,6 +151,14 @@ public class VerifyPhoneActivity extends CoreActivity {
             }
         });
 
+
+        findViewById(R.id.buttonresendotp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resendVerificationCode(phone,mResendToken);
+            }
+        });
+
     }
 
     //the method is sending verification code
@@ -214,6 +222,8 @@ public class VerifyPhoneActivity extends CoreActivity {
                 this,               // Activity (for callback binding)
                 mCallbacks);        // OnVerificationStateChangedCallbacks
     }
+
+
 
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
         try {

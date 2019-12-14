@@ -15,6 +15,7 @@ import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.utils.UiHelper;
 import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -94,14 +95,14 @@ public class SocialConnectFragment extends CoreFragment {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // App code
+                /*// App code
                 //loginResult.getAccessToken();
                 //loginResult.getRecentlyDeniedPermissions()
                 //loginResult.getRecentlyGrantedPermissions()
                 AccessToken loggedIn = AccessToken.getCurrentAccessToken();
                 getUserProfile(loggedIn);
                 Log.d("API123", loggedIn + " ??");
-
+*/
             }
 
             @Override
@@ -125,9 +126,23 @@ public class SocialConnectFragment extends CoreFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+       callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
+        @Override
+        protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+            if(currentAccessToken == null){
+
+                txtUsername.setText("");
+                txtEmail.setText("");
+
+
+            }else
+            {getUserProfile(currentAccessToken);}
+        }
+    };
 
     private void getUserProfile(AccessToken currentAccessToken) {
         GraphRequest request = GraphRequest.newMeRequest(

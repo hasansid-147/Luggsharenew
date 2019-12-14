@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.luggshare.R;
 import com.android.luggshare.common.bundle.SenderRequestBundle;
@@ -23,6 +25,7 @@ import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.fragments.MapViewFragment;
 import com.android.luggshare.presentation.screens.dashboard.activities.DashboardActivity;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.sender.fragments.CategoryFragment;
 import com.android.luggshare.utils.UiHelper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -44,9 +47,27 @@ import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapReadyCallback
         {
+
+
+    @BindView(R.id.edt_pickup)
+    TextView edt_pickup;
+
+    @BindView(R.id.edt_comment)
+    TextView edt_comment;
+
+    @BindView(R.id.edt_destination)
+    TextView edt_destination;
+
+    @BindView(R.id.btn_done)
+    Button btn_done;
+
+
+
 
 
     /* Map Variables */
@@ -101,6 +122,17 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
         return rootview;
     }
 
+    @OnClick(R.id.btn_done)
+    public void onViewClicked(View view) {
+                try {
+
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
     private void checkGooglePlayServicesAvailable() {
 

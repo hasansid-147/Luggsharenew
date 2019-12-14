@@ -21,6 +21,7 @@ import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.EditUserProfileBundle;
 import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.bundle.ViewReviewsBundle;
+import com.android.luggshare.common.bundle.ViewUserPhoneBundle;
 import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.ApplicationStateManager;
@@ -191,6 +192,24 @@ public class ProfileFragment extends CoreFragment {
         bundle.putSerializable(BundleKeys.EDIT_USERPROFILE_BUNDLE, editUserProfileBundle);
 
         replaceChildFragmentWithDelay(new EditProfileFragment(), true, false, bundle, true);
+    }
+
+
+    @OnClick(R.id.txtIsMobile)
+    public void onClickIsMobile(){
+        if(imgTickMobile.getVisibility() == View.VISIBLE){
+
+
+            ViewUserPhoneBundle viewUserPhoneBundle = new ViewUserPhoneBundle();
+            viewUserPhoneBundle.setPhone(rspPhone.toString());
+
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BundleKeys.VIEW_USER_PHONE, viewUserPhoneBundle);
+
+            replaceChildFragmentWithDelay(new ViewPhoneFragment(), true, false, bundle, true);
+        }
+
     }
 
 
