@@ -49,7 +49,6 @@ public class MyReceivedOffersAdapter extends RecyclerView.Adapter<MyReceivedOffe
         holder.tvUsername.setText(offerObj.getTrvName());
         holder.tvArrival.setText(offerObj.getArrivalTo());
         holder.tvDeparture.setText(offerObj.getDepartingFrom());
-        holder.tvDeparture.setText(offerObj.getDepartingFrom());
         holder.tvByDate.setText(offerObj.getDelvDate());
         holder.tvStatus.setText(offerObj.getOfferStatus());
     }

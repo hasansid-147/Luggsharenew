@@ -114,7 +114,9 @@ public class AddCardFragment extends CoreFragment {
 
 
                 if (response.isSuccessful()) {
-                    onAcceptOfferClicked();
+                    //onAcceptOfferClicked();
+                    Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
                 }
@@ -170,7 +172,7 @@ public class AddCardFragment extends CoreFragment {
         login.setTravelerUid(receivedOfferBundle.getRequestObj().getTrvId());
         login.setSendPurchaserreqid(receivedOfferBundle.getRequestObj().getSenderPurchaserid());
         login.setTravelerreqid(receivedOfferBundle.getRequestObj().getTrvReqId());
-        login.setReqtype("SENDER");
+        login.setReqtype(receivedOfferBundle.getRequestObj().getRequest_type());
         login.setStatus("ACCEPTED");
 
         ApiInterface apiService =

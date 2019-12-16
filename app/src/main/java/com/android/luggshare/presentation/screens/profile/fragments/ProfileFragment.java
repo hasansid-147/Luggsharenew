@@ -19,6 +19,10 @@ import com.android.luggshare.business.models.userprofile.UserProfileResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.EditUserProfileBundle;
+import com.android.luggshare.common.bundle.GetUserProfileBundle;
+import com.android.luggshare.common.bundle.ViewReviewsBundle;
+import com.android.luggshare.common.bundle.ViewUserPhoneBundle;
+import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.ApplicationStateManager;
 import com.android.luggshare.common.managers.PreferenceManager;
@@ -81,11 +85,19 @@ public class ProfileFragment extends CoreFragment {
     @BindView(R.id.btnLogout)
     Button btnLogout;
 
+    @BindView(R.id.btnReviews)
+    Button btnReviews;
+
     @BindView(R.id.btnedit)
     ImageView btnedit;
 
     @BindView(R.id.txtIsEmail)
     RelativeLayout txtIsEmail;
+
+    @BindView(R.id.txtIsSocial)
+    RelativeLayout txtIsSocial;
+
+    GetUserProfileBundle getUserProfileBundle;
 
 
     String rspUid,rspFname,rspLname,rspEmail,rspImage,rspImapth,rspPhone,rspDesc;
@@ -103,8 +115,12 @@ public class ProfileFragment extends CoreFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
 
+
+
+
+        if (getArguments() != null) {
+            getUserProfileBundle = (GetUserProfileBundle) getArguments().getSerializable(BundleKeys.GET_USER_PROFILE);
         }
 
     }
@@ -112,9 +128,28 @@ public class ProfileFragment extends CoreFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
         getUserProfile();
+
+        IsPreferenceProfile isprefuser = IsPreferenceProfile.getInstance();
+        boolean isPrefUser = isprefuser.getData();
+        if(isPrefUser == false){
+
+
+            btnedit.setVisibility(View.INVISIBLE);
+            btnedit.setEnabled(false);
+
+            btnLogout.setVisibility(View.INVISIBLE);
+            btnLogout.setEnabled(false);
+
+            txtIsEmail.setClickable(false);
+
+            txtIsSocial.setClickable(false);
+
+        }
 
         return rootview;
     }
@@ -123,7 +158,7 @@ public class ProfileFragment extends CoreFragment {
     @OnClick(R.id.btnLogout)
     public void onLoginClicked() {
 
-        PreferenceManager.getInstance().clear();
+        /*PreferenceManager.getInstance().clear();
 
         ApplicationStateManager.getInstance().setIsAuthenticated(false);
 
@@ -136,7 +171,7 @@ public class ProfileFragment extends CoreFragment {
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         // Staring Login Activity
-        CustomApplication.getContext().startActivity(i);
+        CustomApplication.getContext().startActivity(i);*/
 
 
 
@@ -160,12 +195,31 @@ public class ProfileFragment extends CoreFragment {
     }
 
 
+    @OnClick(R.id.txtIsMobile)
+    public void onClickIsMobile(){
+        if(imgTickMobile.getVisibility() == View.VISIBLE){
+
+
+            ViewUserPhoneBundle viewUserPhoneBundle = new ViewUserPhoneBundle();
+            viewUserPhoneBundle.setPhone(rspPhone.toString());
+
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BundleKeys.VIEW_USER_PHONE, viewUserPhoneBundle);
+
+            replaceChildFragmentWithDelay(new ViewPhoneFragment(), true, false, bundle, true);
+        }
+
+    }
+
+
     @OnClick(R.id.txtIsEmail)
     public void onClickIsEmail(){
         if(imgCancelEmail.getVisibility() == View.VISIBLE){
 
+            int uid = getUserProfileBundle.getUid();
             EditUserProfileBundle verifyUserEmailBundle = new EditUserProfileBundle();
-            verifyUserEmailBundle.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+            verifyUserEmailBundle.setUid(uid);
             verifyUserEmailBundle.setEmail(rspEmail);
 
             Bundle bundle = new Bundle();
@@ -176,12 +230,42 @@ public class ProfileFragment extends CoreFragment {
 
     }
 
+    @OnClick(R.id.txtIsSocial)
+    public void onClickIsSocial(){
+        if(imgCancelsocial.getVisibility() == View.VISIBLE){
+
+
+
+            replaceChildFragmentWithDelay(new SocialConnectFragment(), true, false, null, true);
+        }
+
+    }
+
+    @OnClick(R.id.btnReviews)
+    public void onClickReviews(){
+
+            int uid = getUserProfileBundle.getUid();
+            ViewReviewsBundle viewReviewsBundle = new ViewReviewsBundle();
+            viewReviewsBundle.setUid(uid);
+
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BundleKeys.VIEW_USER_REVIEWS, viewReviewsBundle);
+
+            replaceChildFragmentWithDelay(new UserReviewsFragment(), true, false, bundle, true);
+
+
+    }
+
     private void getUserProfile(){
         UiHelper.getInstance().showLoadingIndicator(getActivity());
 
+        int uid = getUserProfileBundle.getUid();
+        //String email = getUserProfileBundle.getEmail().toString();
+
         UserProfileGet userProfRequest = new UserProfileGet();
-        userProfRequest.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
-        userProfRequest.setEmail(PreferenceManager.getInstance().getString(KEY_EMAIL));
+        userProfRequest.setUid(uid);
+        //userProfRequest.setEmail(email);
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);

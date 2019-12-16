@@ -24,6 +24,8 @@ import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestSenderAdapter;
+import com.android.luggshare.presentation.screens.myrequests.adapters.MyRequestTravelrAdapter;
+import com.android.luggshare.presentation.screens.purchaser.fragments.PurchaserDetailFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderDetailsFragment;
 import com.android.luggshare.presentation.screens.traveler.fragments.TravelerDetailsFragment;
 import com.android.luggshare.utils.RecyclerTouchListener;
@@ -50,6 +52,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
     @BindView(R.id.rvPurchaser)
     RecyclerView rvPurchaser;
     private MyRequestSenderAdapter mAdapter;
+    private MyRequestTravelrAdapter mTravAdapter;
     TextView tvSender, tvTraveler, tvPurchaser;
     RequestTypeBundle requestTypeBundle;
 
@@ -108,8 +111,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                         initSenderView(response.body());
                     } else if (dataRequest.toLowerCase().equals(AppConstants.KEY_TRAVELER)) {
                         initTravelerView(response.body());
-                    }
-                    if (dataRequest.equals(AppConstants.KEY_PURCHASER)) {
+                    } else if (dataRequest.toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
                         initPurchaserView(response.body());
                     }
 
@@ -178,11 +180,11 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
         rvTraveler.setVisibility(View.VISIBLE);
         rvPurchaser.setVisibility(View.GONE);
 
-        mAdapter = new MyRequestSenderAdapter(arrayList);
+        mTravAdapter = new MyRequestTravelrAdapter(arrayList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rvTraveler.setLayoutManager(mLayoutManager);
         rvTraveler.setItemAnimator(new DefaultItemAnimator());
-        rvTraveler.setAdapter(mAdapter);
+        rvTraveler.setAdapter(mTravAdapter);
 
         rvTraveler.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rvTraveler, new RecyclerTouchListener.ClickListener() {
             @Override
@@ -209,7 +211,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -252,7 +254,7 @@ public class MyRequestFragment extends CoreFragment implements View.OnClickListe
                         replaceChildFragmentWithDelay(new TravelerDetailsFragment(), false, true, bundle, true);
                     }
                     if (requestTypeBundle.getRequestType().toLowerCase().equals(AppConstants.KEY_PURCHASER)) {
-
+                        replaceChildFragmentWithDelay(new PurchaserDetailFragment(), false, true, bundle, true);
                     }
 
                 } catch (Exception e) {

@@ -74,6 +74,20 @@
             android:textAllCaps="false"
             android:textColor="#cdd8f1" />
 
+
+        <Button
+            android:id="@+id/buttonresendotp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonSignIn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Resend Code"
+            android:textSize="@dimen/_16ssp"
+            android:textAllCaps="false"
+            android:textColor="#cdd8f1" />
+
     </RelativeLayout>
 
 </RelativeLayout>

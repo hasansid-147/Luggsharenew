@@ -30,6 +30,7 @@ import androidx.core.content.ContextCompat;
 import com.android.luggshare.R;
 import com.android.luggshare.common.bundle.SenderRequestBundle;
 import com.android.luggshare.common.bundle.TravelerRequestBundle;
+import com.android.luggshare.common.constants.IsDashboard;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
@@ -142,7 +143,11 @@ public class TravelerSearchFragment extends CoreFragment implements GoogleMap.On
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        IsDashboard dsb = IsDashboard.getInstance();
+        dsb.setData(0);
         if (getArguments() != null) {
+
+
             travelerRequestBundle = (TravelerRequestBundle) getArguments().getSerializable(BundleKeys.TRAVELER_REQUEST_BUNDLE);
         }
 

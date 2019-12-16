@@ -59,6 +59,13 @@ public class SenderDetailsResponse implements Serializable {
     @Expose
     private String status;
 
+    @SerializedName("image_loc")
+    @Expose
+    private String imageLoc;
+    @SerializedName("image_name")
+    @Expose
+    private String imageName;
+
     public Integer getReqId() {
         return reqId;
     }
@@ -194,5 +201,22 @@ public class SenderDetailsResponse implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getImageLoc() {
+        return imageLoc;
+    }
+
+    public void setImageLoc(String imageLoc) {
+        this.imageLoc = imageLoc;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
 
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+   >
+
+    <TextView
+        android:id="@+id/txtMainHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Add your Payment details"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtMainHeading"
+        android:layout_marginTop="@dimen/_10sdp">
+        <Button
+            android:id="@+id/btnAddcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Card detail"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:background="@color/colorTextHint"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_add"
+            />
+
+        <Button
+            android:id="@+id/btnAddAccnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnAddcard"
+            android:text="Add Account detail"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:background="@color/colorTextHint"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_add"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

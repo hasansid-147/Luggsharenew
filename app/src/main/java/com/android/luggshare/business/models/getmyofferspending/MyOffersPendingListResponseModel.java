@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MyOffersPendingListResponseModel {
 
+
+    @SerializedName("offerid")
+    @Expose
+    private Integer offerid;
     @SerializedName("rcv_name")
     @Expose
     private String rcvName;
@@ -14,6 +18,9 @@ public class MyOffersPendingListResponseModel {
     @SerializedName("rcv_reqid")
     @Expose
     private Integer rcvReqid;
+    @SerializedName("from_reqid")
+    @Expose
+    private Integer fromReqid;
     @SerializedName("rcv_packag_name")
     @Expose
     private String rcvPackagName;
@@ -45,6 +52,15 @@ public class MyOffersPendingListResponseModel {
     @Expose
     private String offerStatus;
 
+    public Integer getOfferid() {
+        return offerid;
+    }
+
+    public void setOfferid(Integer offerid) {
+        this.offerid = offerid;
+    }
+
+
     public String getRcvName() {
         return rcvName;
     }
@@ -67,6 +83,14 @@ public class MyOffersPendingListResponseModel {
 
     public void setRcvReqid(Integer rcvReqid) {
         this.rcvReqid = rcvReqid;
+    }
+
+    public Integer getFromReqid() {
+        return fromReqid;
+    }
+
+    public void setFromReqid(Integer fromReqid) {
+        this.fromReqid = fromReqid;
     }
 
     public String getRcvPackagName() {

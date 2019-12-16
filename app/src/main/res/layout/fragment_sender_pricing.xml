@@ -68,7 +68,7 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="Delivery Reward Charges:"
                 android:textColor="@color/colorGrey"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="Service Charges:"
                 android:textColor="@color/colorGrey"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -129,7 +129,7 @@
                 android:layout_toRightOf="@+id/txtServiceCharges"
                 android:text="  "
                 android:textColor="@color/colorGrey"
-                android:textSize="13sp" />
+                android:textSize="12sp" />
             <TextView
                 android:id="@+id/txtServiceChargescurr"
                 android:layout_width="wrap_content"

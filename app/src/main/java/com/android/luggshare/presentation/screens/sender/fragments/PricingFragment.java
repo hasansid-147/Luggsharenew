@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +62,10 @@ public class PricingFragment extends CoreFragment {
     TextView txtServiceChargescurr;
     @BindView(R.id.edtDeliverychrges)
     EditText edtDeliverychrges;
+
+    @BindView(R.id.btnedit)
+    ImageView btnedit;
+
     @BindView(R.id.edtOk)
     Button edtOk;
 

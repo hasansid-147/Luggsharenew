@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/con_text"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_130sdp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/border_curved"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/llRow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/edittext_rounded_corners"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvIdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#212121"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="normal"
+            tools:text="Item Name:" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@color/colorGrey"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            tools:text="975 16th St, San Francisco, CA 94107" />
+
+
+
+        <TextView
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:textColor="#9e9e9e"
+            android:textSize="@dimen/_10ssp"
+            tools:text="975 16th St, San Francisco, CA 94107" />
+
+
+    </LinearLayout>
+</RelativeLayout>

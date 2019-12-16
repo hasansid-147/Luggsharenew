@@ -8,13 +8,40 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+
+
+
+
+        >
+        <ImageView
+            android:id="@+id/mastercard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_3sdp"
+            android:src="@drawable/ic_mastercard"></ImageView>
+
+        <ImageView
+            android:id="@+id/visacasd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_toRightOf="@id/mastercard"
+            android:src="@drawable/ic_visa"></ImageView>
+
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="50dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="18dp"
         android:paddingRight="18dp"
@@ -114,7 +141,7 @@
             android:layout_marginRight="@dimen/_200sdp"
             android:background="@drawable/edittext_rounded_corners"
             android:hint="CVV"
-            android:imeOptions="actionNext"
+
             android:padding="@dimen/_5sdp"
             android:singleLine="true"
             android:maxLength="3"

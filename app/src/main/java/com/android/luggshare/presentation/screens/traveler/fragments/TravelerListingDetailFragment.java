@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +28,15 @@ import com.android.luggshare.business.models.traveleroffer.TravelerOfferRequest;
 import com.android.luggshare.business.models.traveleroffer.TravelerOfferResponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.bundle.TravelerRequestBundle;
+import com.android.luggshare.common.constants.IsDashboard;
+import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
+import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.presentation.screens.traveler.adapters.TravelerListingAdapter;
 import com.android.luggshare.utils.UiHelper;
 
@@ -61,6 +66,9 @@ public class TravelerListingDetailFragment extends CoreFragment {
     @BindView(R.id.tvDeliverTo)
     TextView tvDeliverTo;
 
+    @BindView(R.id.tvUrl)
+    TextView tvUrl;
+
     @BindView(R.id.tvReward)
     TextView tvReward;
 
@@ -79,6 +87,9 @@ public class TravelerListingDetailFragment extends CoreFragment {
     @BindView(R.id.tvRate)
     TextView tvRate;
 
+    @BindView(R.id.rlUsername)
+    RelativeLayout rlUsername;
+
     @BindView(R.id.imgPackage)
     ImageView imgPackage;
 
@@ -86,6 +97,8 @@ public class TravelerListingDetailFragment extends CoreFragment {
     Button btnSendOffer;
 
     String TAG = "TravelerOffer";
+    GetUserProfileBundle getUserProfileBundle;
+
 
     @Override
     protected int getLayoutResourceId() {
@@ -122,6 +135,7 @@ public class TravelerListingDetailFragment extends CoreFragment {
         tvWeight.setText("KG " + travelerObj.getWeight() + "");
         tvSize.setText(travelerObj.getSize() + "");
         tvUsername.setText(travelerObj.getUsername() + "");
+        tvUrl.setText(travelerObj.getUrl()+ "");
         tvRate.setText("0");
         UiHelper.setImageWithGlide(getActivity(), imgPackage, BASE_IMG_PATH + travelerObj.getImagename());
 
@@ -148,7 +162,7 @@ public class TravelerListingDetailFragment extends CoreFragment {
                     return;
                 }
 
-                callSendOfferApi(Integer.parseInt(edtOffer.getText().toString()));
+                callSendOfferApi(Integer.parseInt(edtOffer.getText().toString()),offerDialog);
 
             }
         });
@@ -166,9 +180,28 @@ public class TravelerListingDetailFragment extends CoreFragment {
 
     }
 
-    private void callSendOfferApi(int offerValue) {
+
+    @OnClick(R.id.rlUsername)
+    public void LoadUserProfile() {
+
+        IsPreferenceProfile isprefuser = IsPreferenceProfile.getInstance();
+        isprefuser.setData(false);
+        getUserProfileBundle = new GetUserProfileBundle();
+        getUserProfileBundle.setUid(travelerRequestBundle.getTravListRespObj().getUid());
+        getUserProfileBundle.setEmail(null);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(BundleKeys.GET_USER_PROFILE, getUserProfileBundle);
+        replaceChildFragmentWithDelay(new ProfileFragment(), true, false, bundle, true);
+
+    }
+
+    private void callSendOfferApi(int offerValue,Dialog offerdialog) {
 
         UiHelper.getInstance().showLoadingIndicator(getActivity());
+
+        IsDashboard dsb = IsDashboard.getInstance();
+        int isdsb = dsb.getData();
 
         TravelerOfferRequest reqObj = new TravelerOfferRequest();
         reqObj.setFromUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID) + "");
@@ -177,8 +210,8 @@ public class TravelerListingDetailFragment extends CoreFragment {
         reqObj.setToReqid(travelerRequestBundle.getTravListRespObj().getUserreq() + "");
         reqObj.setToReqid(travelerRequestBundle.getTravListRespObj().getUserreq() + "");
         reqObj.setPrice(offerValue);
-        reqObj.setToReqType("SENDER");
-        reqObj.setIsDsb(0);
+        reqObj.setToReqType(travelerRequestBundle.getTravListRespObj().getReqtype() + "");
+        reqObj.setIsDsb(isdsb);
         reqObj.setReqTyp("TRAVELER");
 
         reqObj.setDepFromCountry(travelerRequestBundle.getDepFromCountry());
@@ -207,7 +240,10 @@ public class TravelerListingDetailFragment extends CoreFragment {
                 UiHelper.getInstance().hideLoadingIndicator();
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+
+
+                    Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    offerdialog.dismiss();
                     replaceChildFragmentWithDelay(new HomeFragment(), true, false, null, false);
                 } else {
                     Toast.makeText(getContext(), getString(R.string.error_something_went_wrong), Toast.LENGTH_SHORT).show();

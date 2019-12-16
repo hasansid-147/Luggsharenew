@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="18dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/txtCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtItemDescription"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:text="Holder name"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtCardName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint="Full Name"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtCardNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtCardName"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Account Number"
+            android:maxLength="16"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtCardNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCardNo"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint="eg. 000123456789"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtExpDatet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtCardNo"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Swift code"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtSwift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtExpDatet"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtCVV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtSwift"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Currency"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtCVV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCVV"
+            android:layout_marginRight="@dimen/_200sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:text="PKR"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:maxLength="3"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="35dp"
+        android:background="@color/colorPrimary"
+        android:text="Add Account"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>
+
+
+
+
+
+

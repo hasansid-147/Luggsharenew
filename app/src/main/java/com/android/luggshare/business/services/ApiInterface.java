@@ -1,9 +1,15 @@
 package com.android.luggshare.business.services;
 
+import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatus;
+import com.android.luggshare.business.models.UpdateOfferStatus.UpdateOfferStatusResponse;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptRequest;
 import com.android.luggshare.business.models.acceptoffer.OfferAcceptResponse;
+import com.android.luggshare.business.models.addaccount.AddAccountRequest;
+import com.android.luggshare.business.models.addaccount.AddAccountResponse;
 import com.android.luggshare.business.models.addcard.AddCardRequest;
 import com.android.luggshare.business.models.addcard.AddCardResponse;
+import com.android.luggshare.business.models.editoffer.EditOfferReponse;
+import com.android.luggshare.business.models.editoffer.EditOfferRequest;
 import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListRequestModel;
 import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListResponseModel;
 import com.android.luggshare.business.models.getmyoffersreceived.MyOffersReceivedListRequestModel;
@@ -12,6 +18,10 @@ import com.android.luggshare.business.models.getsenderlist.ListResponse;
 import com.android.luggshare.business.models.getsenderlist.RequestSenderList;
 import com.android.luggshare.business.models.loginservice.LoginRequest;
 import com.android.luggshare.business.models.loginservice.LoginResponse;
+import com.android.luggshare.business.models.notifications.GetNotifications;
+import com.android.luggshare.business.models.notifications.NotificationReponse;
+import com.android.luggshare.business.models.purchaserdetails.PurchaserDetailsReponse;
+import com.android.luggshare.business.models.purchaserdetails.PurchaserDetailsRequest;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryRequest;
 import com.android.luggshare.business.models.purchasersummary.PurchaserSummaryResponse;
 import com.android.luggshare.business.models.registrationservice.SignUpResponse;
@@ -36,6 +46,10 @@ import com.android.luggshare.business.models.userprofile.UpdUserProfile;
 import com.android.luggshare.business.models.userprofile.UpdUserProfileResponse;
 import com.android.luggshare.business.models.userprofile.UserProfileGet;
 import com.android.luggshare.business.models.userprofile.UserProfileResponse;
+import com.android.luggshare.business.models.userreviews.AddReviews;
+import com.android.luggshare.business.models.userreviews.AddReviewsReponse;
+import com.android.luggshare.business.models.userreviews.GetReviews;
+import com.android.luggshare.business.models.userreviews.ReviewsListReponse;
 
 import java.util.ArrayList;
 
@@ -78,8 +92,14 @@ public interface ApiInterface {
     @POST("dashboard/senderdetail")
     Call<SenderDetailsResponse> fetchSenderDetails(@Body SenderDetailsRequest body);
 
+    @POST("offer/editoffer")
+    Call<EditOfferReponse> editOffer(@Body EditOfferRequest body);
+
     @POST("offer/acceptoffer")
     Call<OfferAcceptResponse> acceptOffer(@Body OfferAcceptRequest body);
+
+    @POST("payment/addacc")
+    Call<AddAccountResponse> addAccount(@Body AddAccountRequest body);
 
     @POST("payment/addcrc")
     Call<AddCardResponse> addCard(@Body AddCardRequest body);
@@ -126,6 +146,9 @@ public interface ApiInterface {
     @POST("Summary/purchaser")
     Call<PurchaserSummaryResponse> getpurchaserPricing(@Body PurchaserSummaryRequest body);
 
+    @POST("dashboard/purchaserdetail")
+    Call<PurchaserDetailsReponse> fetchPurchaserDetails(@Body PurchaserDetailsRequest body);
+
 
     @Multipart
     @POST("request/purchaser")
@@ -162,5 +185,21 @@ public interface ApiInterface {
 
     @POST("track/gettracklist")
     Call<ArrayList<TrackListResponse>> fetchTrackListData(@Body GetTrackList body);
+
+    @POST("notification/get")
+    Call<ArrayList<NotificationReponse>> fetchNotifications(@Body GetNotifications body);
+
+
+
+
+    @POST("reviews/getreviews")
+    Call<ArrayList<ReviewsListReponse>> fetchAllReviews(@Body GetReviews body);
+
+    @POST("reviews/addreviews")
+    Call<AddReviewsReponse> AddReviews(@Body AddReviews body);
+
+
+    @POST("payment/delconf")
+    Call<UpdateOfferStatusResponse> deliveryConfirm(@Body UpdateOfferStatus body);
 
 }

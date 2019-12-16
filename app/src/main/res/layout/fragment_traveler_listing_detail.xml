@@ -8,7 +8,14 @@
     android:orientation="vertical"
     >
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+
+        android:background="@drawable/edittext_rounded_corners"
+        android:layout_marginTop="@dimen/_10sdp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -145,6 +152,46 @@
                         android:text="Deliver To"
                         android:textColor="@color/colorBlack"
                         android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlurkl"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/rlPickFrom"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:divider="#b5b5b5"
+                    android:dividerHeight="5dp">
+
+
+                    <TextView
+                        android:id="@+id/txturl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Url //:"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvUrl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txturl"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="3dp"
+                        android:text="Deliver To"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -471,6 +518,6 @@
         </ScrollView>
 
     </RelativeLayout>
-
+    </ScrollView>
 
 </RelativeLayout>

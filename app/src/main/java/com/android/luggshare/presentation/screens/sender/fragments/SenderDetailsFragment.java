@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.android.luggshare.common.keys.AppConstants.BASE_IMG_PATH;
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 
 
@@ -66,6 +68,9 @@ public class SenderDetailsFragment extends CoreFragment implements View.OnClickL
 
     @BindView(R.id.tvStatus)
     TextView tvStatus;
+
+    @BindView(R.id.imgPackage)
+    ImageView imgPackage;
 
     RequestTypeBundle requestTypeBundle;
 
@@ -196,6 +201,7 @@ public class SenderDetailsFragment extends CoreFragment implements View.OnClickL
         tvReward.setText(resp.getReward() + "");
         tvFees.setText(resp.getFee() + "");
         tvStatus.setText(resp.getStatus());
+        UiHelper.setImageWithGlide(getActivity(), imgPackage, BASE_IMG_PATH + resp.getImageLoc());
 
     }
 

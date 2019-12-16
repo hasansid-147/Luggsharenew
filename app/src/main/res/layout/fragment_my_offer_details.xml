@@ -8,38 +8,85 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <RelativeLayout
+        android:id="@+id/rlrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btnRate"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Rate User"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:drawableLeft="@drawable/ic_star_yellow"
+            android:layout_alignParentRight="true"
+
+            />
+
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/llMainContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rlrate"
         android:orientation="vertical"
         android:padding="@dimen/_5sdp"
         android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/edittext_rounded_corners"
+
         android:layout_centerHorizontal="true"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Name"
-            android:textSize="@dimen/_12ssp"
-            android:textColor="@color/colorGrey"
-            />
+        <RelativeLayout
+            android:id="@+id/rlone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_weight="2">
 
-        <TextView
+        <RelativeLayout
+                android:id="@+id/rlUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                 android:gravity="center_horizontal|center_vertical">
+            <TextView
+                android:id="@+id/txtUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="User Name"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/colorGrey"
+                />
+
+            <TextView
             android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUsername"
             android:text="Item Name"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/colorBlack"
-            />
+                />
+            </RelativeLayout>
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rating"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_alignParentRight="true"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
@@ -49,15 +96,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Description"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_13sdp"
             android:textSize="@dimen/_14ssp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorBlack">
+
+        </TextView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_alignParentBottom="true" />
             />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rltwo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:padding="@dimen/_5sdp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Traveling From"
-            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
@@ -66,16 +130,23 @@
             android:id="@+id/tvTravelingFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/_13sdp"
             android:text="Deliver Date"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_11ssp"
             android:textColor="@color/colorBlack"
             />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:text="Traveling To"
-            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
@@ -84,34 +155,60 @@
             android:id="@+id/tvTravelingTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_13sdp"
             android:text="Category"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_11ssp"
             android:textColor="@color/colorBlack"
             />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/rlthree"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arrival Date"
-            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
 
-        <TextView
-            android:id="@+id/tvArrivalDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/colorBlack"
-            />
+            <TextView
+                android:id="@+id/tvArrivalDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:text="Status"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorBlack"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
 
+
+        <RelativeLayout
+            android:id="@+id/rlfour"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Offer Price"
-            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorGrey"
             />
@@ -120,11 +217,49 @@
             android:id="@+id/tvOffer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
             android:text="Status"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/colorBlack"
             />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
 
+
+        <RelativeLayout
+            android:id="@+id/rlfive"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Status"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/colorGrey"
+                />
+
+            <TextView
+                android:id="@+id/tvOfferstatus"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:text="Status"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="italic|bold"
+                android:textColor="#0b74a5"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
     </LinearLayout>
 
     <Button
@@ -152,6 +287,8 @@
         android:background="@color/colorPrimary"
         android:layout_below="@+id/btnAcceptOffer"
         />
+
+
 
 
 </RelativeLayout>
