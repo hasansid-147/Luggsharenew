@@ -53,9 +53,19 @@ public class TrackDeliveryFragment extends CoreFragment {
     private MyTrackingAdapter mAdapter;
     TrackingListDetailBundle trackingListDetailBundle;
 
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            trackingBundle = (TrackingBundle) getArguments().getSerializable(BundleKeys.TRACKING);
+        }
+
+    }
+
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.fragment_my_tracking;
+        return R.layout.fragment_track_my__delivery;
     }
 
 
@@ -64,10 +74,8 @@ public class TrackDeliveryFragment extends CoreFragment {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
-        trackingBundle =  new TrackingBundle();
         int uid = trackingBundle.getUid();
         int trackingas  = trackingBundle.getTrackingas();
-
 
         fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID), trackingas);
 

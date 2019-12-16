@@ -21,6 +21,8 @@ import com.android.luggshare.presentation.screens.myoffers.fragments.MyOffersFra
 import com.android.luggshare.presentation.screens.myrequests.fragments.MyRequestFragment;
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
 import com.android.luggshare.presentation.screens.sender.fragments.SenderRequestFragment;
+import com.android.luggshare.presentation.screens.tracking.fragments.fragment.MyTrackingFragment;
+import com.android.luggshare.presentation.screens.tracking.fragments.fragment.TrackDeliveryFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import butterknife.BindView;
@@ -82,7 +84,7 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         replaceChildFragmentWithDelay(R.id.content_area, new MyOffersFragment(), true, false, null, true);
                         break;
                     case R.id.nav_tracking:
-                        replaceChildFragmentWithDelay(R.id.content_area, null, true, false, null, true);
+                        replaceChildFragmentWithDelay(R.id.content_area, new MyTrackingFragment(), true, false, null, true);
                         break;
                     default:
                         return true;

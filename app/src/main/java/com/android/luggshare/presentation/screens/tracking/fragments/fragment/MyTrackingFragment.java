@@ -13,6 +13,7 @@ import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 
 import androidx.annotation.NonNull;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -49,40 +50,36 @@ public class MyTrackingFragment extends CoreFragment {
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
-
-
         return rootview;
     }
 
     @OnClick(R.id.btnTrkDelivery)
-    public void onTrckDeliveryclick(){
+    public void onTrckDeliveryclick() {
 
-        trackingBundle =  new TrackingBundle();
+        trackingBundle = new TrackingBundle();
         trackingBundle.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
         trackingBundle.setTrackingas(2);
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(BundleKeys.TRACKING, trackingBundle);
-        replaceChildFragmentWithDelay(new TrackDeliveryFragment(), true, false, null, true);
+        replaceChildFragmentWithDelay(new TrackDeliveryFragment(), true, false, bundle, true);
 
 
     }
 
     @OnClick(R.id.btnUpdDelivery)
-    public void onUpdDeliveryclick(){
+    public void onUpdDeliveryclick() {
 
-        trackingBundle =  new TrackingBundle();
+        trackingBundle = new TrackingBundle();
         trackingBundle.setUid(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
         trackingBundle.setTrackingas(1);
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(BundleKeys.TRACKING, trackingBundle);
-        replaceChildFragmentWithDelay(new TrackDeliveryFragment(), true, false, null, true);
+        replaceChildFragmentWithDelay(new TrackDeliveryFragment(), true, false, bundle, true);
 
 
     }
-
-
 
 
 }
