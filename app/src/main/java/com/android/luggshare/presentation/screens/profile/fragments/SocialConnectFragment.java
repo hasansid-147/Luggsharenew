@@ -53,6 +53,7 @@ public class SocialConnectFragment extends CoreFragment {
 
 
 
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.fragment_facebook_connect;
@@ -130,7 +131,7 @@ public class SocialConnectFragment extends CoreFragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
+   /* AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
         @Override
         protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
             if(currentAccessToken == null){
@@ -142,7 +143,7 @@ public class SocialConnectFragment extends CoreFragment {
             }else
             {getUserProfile(currentAccessToken);}
         }
-    };
+    };*/
 
     private void getUserProfile(AccessToken currentAccessToken) {
         GraphRequest request = GraphRequest.newMeRequest(

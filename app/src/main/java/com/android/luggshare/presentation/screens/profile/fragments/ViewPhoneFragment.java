@@ -35,8 +35,6 @@ public class ViewPhoneFragment extends CoreFragment {
    @BindView(R.id.edtemail)
    EditText edtemail;
 
-   @BindView(R.id.btnVerify)
-   Button btnVerify;
 
 
     ViewUserPhoneBundle viewUserPhoneBundle ;
