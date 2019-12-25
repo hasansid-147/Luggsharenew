@@ -74,8 +74,8 @@ public class PurchaserDetailFragment extends CoreFragment {
     @BindView(R.id.tvStatus)
     TextView tvStatus;
 
-    @BindView(R.id.imgPackage)
-    ImageView imgPackage;
+    //@BindView(R.id.imgPackage)
+  //  ImageView imgPackage;
 
     @BindView(R.id.imageSlider)
     SliderView imageSlider;
@@ -158,8 +158,9 @@ public class PurchaserDetailFragment extends CoreFragment {
     private void initPurchaserView(PurchaserDetailsReponse resp) {
 
         ArrayList<String> images = new ArrayList<String>();
-        images.add(BASE_IMG_PATH + resp.getImageLoc());
-        images.add(BASE_IMG_PATH + resp.getImageLoc2());
+
+        images.add(BASE_IMG_PATH + resp.getImageLoc() + "?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        images.add(BASE_IMG_PATH + resp.getImageLoc2() + "?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
 
         final SliderAdapterExample adapter = new SliderAdapterExample(images);
@@ -168,10 +169,11 @@ public class PurchaserDetailFragment extends CoreFragment {
 
         imageSlider.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         imageSlider.setSliderTransformAnimation(SliderAnimations.CUBEINROTATIONTRANSFORMATION);
-        imageSlider.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        //imageSlider.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         imageSlider.setIndicatorSelectedColor(Color.WHITE);
         imageSlider.setIndicatorUnselectedColor(Color.GRAY);
-        imageSlider.startAutoCycle();
+
+        //imageSlider.startAutoCycle();
 
         imageSlider.setOnIndicatorClickListener(new DrawController.ClickListener() {
             @Override

@@ -8,6 +8,7 @@ import com.android.luggshare.business.models.addaccount.AddAccountRequest;
 import com.android.luggshare.business.models.addaccount.AddAccountResponse;
 import com.android.luggshare.business.models.addcard.AddCardRequest;
 import com.android.luggshare.business.models.addcard.AddCardResponse;
+import com.android.luggshare.business.models.claim.ClaimRequest;
 import com.android.luggshare.business.models.editoffer.EditOfferReponse;
 import com.android.luggshare.business.models.editoffer.EditOfferRequest;
 import com.android.luggshare.business.models.getmyofferspending.MyOffersPendingListRequestModel;
@@ -30,8 +31,12 @@ import com.android.luggshare.business.models.senderdetails.SenderDetailsRequest;
 import com.android.luggshare.business.models.senderdetails.SenderDetailsResponse;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryRequest;
 import com.android.luggshare.business.models.sendersummary.SenderSummaryResponse;
+import com.android.luggshare.business.models.tracking.GetLatestTracking;
+import com.android.luggshare.business.models.tracking.GetLatestTrackingResp;
 import com.android.luggshare.business.models.tracking.GetTrackList;
 import com.android.luggshare.business.models.tracking.TrackListResponse;
+import com.android.luggshare.business.models.tracking.UpdateTracking;
+import com.android.luggshare.business.models.tracking.UpdateTrackingResp;
 import com.android.luggshare.business.models.traveler.TravelerRequest;
 import com.android.luggshare.business.models.traveler.TravelerResponse;
 import com.android.luggshare.business.models.travelerdetails.TravelerDetailsRequest;
@@ -186,6 +191,16 @@ public interface ApiInterface {
     @POST("track/gettracklist")
     Call<ArrayList<TrackListResponse>> fetchTrackListData(@Body GetTrackList body);
 
+    @POST("track/getlatest")
+    Call<GetLatestTrackingResp> getLatestTracking(@Body GetLatestTracking body);
+
+    @POST("track/requestlates")
+    Call<UpdateTrackingResp> updateTracking(@Body UpdateTracking body);
+
+    @POST("track/requestlates")
+    Call<String> requestLatest(Integer id);
+
+
     @POST("notification/get")
     Call<ArrayList<NotificationReponse>> fetchNotifications(@Body GetNotifications body);
 
@@ -201,5 +216,8 @@ public interface ApiInterface {
 
     @POST("payment/delconf")
     Call<UpdateOfferStatusResponse> deliveryConfirm(@Body UpdateOfferStatus body);
+
+    @POST("claim/raiseclaim")
+    Call<String> raiseClaim(@Body ClaimRequest body);
 
 }

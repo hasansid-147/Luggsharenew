@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +16,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.luggshare.R;
+import com.android.luggshare.business.models.tracking.GetLatestTracking;
+import com.android.luggshare.business.models.tracking.GetLatestTrackingResp;
+import com.android.luggshare.business.models.tracking.TrackListResponse;
+import com.android.luggshare.business.models.tracking.UpdateTracking;
+import com.android.luggshare.business.models.tracking.UpdateTrackingResp;
+import com.android.luggshare.business.services.ApiClient;
+import com.android.luggshare.business.services.ApiInterface;
 import com.android.luggshare.common.bundle.SenderRequestBundle;
 import com.android.luggshare.common.bundle.TrackingListDetailBundle;
 import com.android.luggshare.common.keys.BundleKeys;
@@ -39,9 +48,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -49,8 +60,13 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapReadyCallback
+public class TrackDeliveryDetailFragment extends CoreFragment implements GoogleMap.OnMyLocationClickListener,
+        OnMapReadyCallback,
+        LocationListener
         {
 
 
@@ -65,6 +81,7 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
 
     @BindView(R.id.btn_done)
     Button btn_done;
+
 
 
 
@@ -117,6 +134,7 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
+        getTrackData();
         initiateMapData();
         initializePlacesData();
         return rootview;
@@ -205,6 +223,10 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
     }
 
     @Override
+      public void onMyLocationClick(@NonNull Location location) {
+                enableMyLocation();
+      }
+    @Override
     public void onMapReady(GoogleMap googleMap) {
 
         MapsInitializer.initialize(CustomApplication.getContext());
@@ -230,7 +252,32 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
 
     }
 
-    /**
+    @Override
+    public void onLocationChanged(Location location) {
+                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                mMap.animateCamera(cameraUpdate);
+                locationManager.removeUpdates(this);
+    }
+
+    @Override
+     public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+
+
+
+            /**
      * Enables the My Location layer if the fine location permission has been granted.
      */
     private void enableMyLocation() {
@@ -257,10 +304,15 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
                             // Got last known location. In some rare situations this can be null.
                             if (location != null) {
 
-                                srcLat = location.getLatitude();
-                                srcLng = location.getLongitude();
+                                if(Double.compare(srcLat,0.0) ==0 && Double.compare(srcLng,0.0) ==0 ) {
+                                    srcLat = location.getLatitude();
+                                    srcLng = location.getLongitude();
 
-                                latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                    latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                }else
+                                {
+                                    latLng = new LatLng(srcLat, srcLng);
+                                }
 
                                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 16);
                                 mMap.animateCamera(cameraUpdate);
@@ -279,5 +331,109 @@ public class TrackDeliveryDetailFragment extends CoreFragment implements OnMapRe
 
 
     }
+
+    public void getTrackData(){
+
+        UiHelper.getInstance().hideKeyboard(getActivity());
+        UiHelper.getInstance().showLoadingIndicator(getActivity());
+
+        GetLatestTracking getLatestTracking = new GetLatestTracking();
+
+        getLatestTracking.setOfferid(trackingListDetailBundle.getOfferId());
+
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<GetLatestTrackingResp> call = apiService.getLatestTracking(getLatestTracking);
+        call.enqueue(new Callback<GetLatestTrackingResp>() {
+            @Override
+            public void onResponse(Call<GetLatestTrackingResp> call, Response<GetLatestTrackingResp> response) {
+
+                Log.d("List", "RESPONSE:" + response.body());
+                UiHelper.getInstance().hideLoadingIndicator();
+
+
+                if (response.isSuccessful()) {
+                   if (response.body().equals(null)){
+
+                       Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
+
+
+
+                    }else{
+
+                       srcLat = Double.parseDouble(response.body().getLatitude());
+                       srcLng = Double.parseDouble(response.body().getLongitutde());
+                       edt_pickup.setText(response.body().getStatus());
+                       edt_comment.setText(response.body().getComment());
+                       edt_destination.setText(response.body().getUpdatedAt());
+                    }
+
+
+                } else {
+
+                    Toast.makeText(getContext(), getString(R.string.No_Data_Found), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<GetLatestTrackingResp> call, Throwable t) {
+                Log.e("List", t.toString());
+            }
+        });
+
+
+
+    }
+
+            @OnClick(R.id.btn_done)
+            public void onRequestForLatest() {
+
+
+
+                UiHelper.getInstance().hideKeyboard(getActivity());
+
+                UiHelper.getInstance().showLoadingIndicator(getActivity());
+
+
+
+
+                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+
+                Call<String> call = apiService.requestLatest(trackingListDetailBundle.getOfferId());
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+
+                        Log.d("List", "RESPONSE:" + response.body());
+                        UiHelper.getInstance().hideLoadingIndicator();
+
+
+                        if (response.isSuccessful()) {
+
+
+
+
+
+
+
+                        }
+
+
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Log.e("List", t.toString());
+                    }
+                });
+
+
+            }
+
+
 
 }

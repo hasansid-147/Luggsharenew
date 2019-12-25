@@ -51,6 +51,9 @@ public class AddCardFragment extends CoreFragment {
     @BindView(R.id.edtCVV)
     EditText edtCVV;
 
+    @BindView(R.id.btnAdd)
+    Button btnAdd;
+
     DateTimePicker expiryDateObj;
 
     ReceivedOfferBundle receivedOfferBundle;

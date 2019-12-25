@@ -36,27 +36,37 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
     }
     @Override
     public void onBindViewHolder(SliderAdapterVH viewHolder, int position) {
-        viewHolder.textViewDescription.setText("This is slider item " + position);
-        String image = images.get(position);
-        Glide.with(viewHolder.itemView)
+        //viewHolder.textViewDescription.setText("This is slider item " + position);
+        //String image = images.get(position);
+        //Glide.with(viewHolder.itemView)
                 //.load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-                .load(image)
-                .into(viewHolder.imageViewBackground);
+               // .load(image)
+              //  .into(viewHolder.imageViewBackground);
 
-        /*switch (position) {
+        switch (position) {
             case 0:
                 Glide.with(viewHolder.itemView)
                         //.load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-                        .load(images)
+                        .load(images.get(position))
+                        .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
             case 1:
                 Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+                        //.load("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+                        .load(images.get(position))
+                        .fitCenter()
                         .into(viewHolder.imageViewBackground);
                 break;
 
-        }*/
+            default:
+                Glide.with(viewHolder.itemView)
+                        .load("http://luggshare-001-site1.htempurl.com/images/gray-background.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+                        .fitCenter()
+                        .into(viewHolder.imageViewBackground);
+                break;
+
+        }
 
     }
 

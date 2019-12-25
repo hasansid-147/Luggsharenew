@@ -171,6 +171,9 @@ public class MyOffersFragment extends CoreFragment {
         rvReceivedOffers.setVisibility(View.VISIBLE);
         rvPendingOffers.setVisibility(View.GONE);
 
+
+
+
         mReceivedAdapter = new MyReceivedOffersAdapter(arrayList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rvReceivedOffers.setLayoutManager(mLayoutManager);
@@ -212,8 +215,9 @@ public class MyOffersFragment extends CoreFragment {
 
     private void initPendingOffers(final ArrayList<MyOffersPendingListResponseModel> arrayList) {
 
-        rvReceivedOffers.setVisibility(View.GONE);
         rvPendingOffers.setVisibility(View.VISIBLE);
+        rvReceivedOffers.setVisibility(View.GONE);
+
 
         mPendingAdapter = new MyPendingOffersAdapter(arrayList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -262,12 +266,15 @@ public class MyOffersFragment extends CoreFragment {
             case R.id.tvReceived:
                 tvReceived.setBackgroundResource(R.drawable.border_curved_selected);
                 tvPending.setBackgroundResource(R.drawable.border_curved);
+                rvPendingOffers.setVisibility(View.GONE);
                 fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
+
                 break;
 
             case R.id.tvPending:
                 tvReceived.setBackgroundResource(R.drawable.border_curved);
                 tvPending.setBackgroundResource(R.drawable.border_curved_selected);
+                rvReceivedOffers.setVisibility(View.GONE);
                 fetchPendingListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID));
                 break;
 

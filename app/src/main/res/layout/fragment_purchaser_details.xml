@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/llImageContainer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_height="@dimen/_240sdp"
         android:layout_alignParentTop="true"
         android:orientation="horizontal"
         >
@@ -19,34 +19,34 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="01dp"
-        android:padding="@dimen/_2sdp"
+        android:layout_margin="0dp"
         android:orientation="horizontal">
 
 
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="6dp"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/_240sdp"
+                android:adjustViewBounds="true"
                 app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
+                app:sliderAutoCycleDirection="left"
+                app:sliderAutoCycleEnabled="false"
                 app:sliderCircularHandlerEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorAnimationDuration="1500"
                 app:sliderIndicatorGravity="center_horizontal|bottom"
                 app:sliderIndicatorMargin="15dp"
                 app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
+
                 app:sliderIndicatorRadius="2dp"
                 app:sliderIndicatorSelectedColor="#5A5A5A"
                 app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
+                app:sliderScrollTimeInSec="5"
                 app:sliderStartAutoCycle="true" />
 
         </androidx.cardview.widget.CardView>
@@ -138,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_70sdp"
                     android:text="Pick From"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -178,7 +178,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pick From"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_10ssp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Deliver To"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_10ssp"
                     android:textColor="@color/colorBlack"
                     />
 

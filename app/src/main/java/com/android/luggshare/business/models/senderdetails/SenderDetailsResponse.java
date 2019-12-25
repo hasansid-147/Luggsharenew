@@ -66,6 +66,13 @@ public class SenderDetailsResponse implements Serializable {
     @Expose
     private String imageName;
 
+    @SerializedName("image_loc2")
+    @Expose
+    private String imageLoc2;
+    @SerializedName("image_name2")
+    @Expose
+    private String imageName2;
+
     public Integer getReqId() {
         return reqId;
     }
@@ -208,6 +215,14 @@ public class SenderDetailsResponse implements Serializable {
 
     public void setImageLoc(String imageLoc) {
         this.imageLoc = imageLoc;
+    }
+
+    public String getImageLoc2() {
+        return imageLoc2;
+    }
+
+    public void setImageLoc2(String imageLoc2) {
+        this.imageLoc2 = imageLoc2;
     }
 
     public String getImageName() {

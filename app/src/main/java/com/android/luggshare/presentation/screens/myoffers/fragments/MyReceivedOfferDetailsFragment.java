@@ -25,15 +25,19 @@ import com.android.luggshare.business.models.userreviews.AddReviews;
 import com.android.luggshare.business.models.userreviews.AddReviewsReponse;
 import com.android.luggshare.business.services.ApiClient;
 import com.android.luggshare.business.services.ApiInterface;
+import com.android.luggshare.common.bundle.ClaimBundle;
 import com.android.luggshare.common.bundle.GetUserProfileBundle;
 import com.android.luggshare.common.bundle.ReceivedOfferBundle;
+import com.android.luggshare.common.bundle.TrackingBundle;
 import com.android.luggshare.common.constants.IsPreferenceProfile;
 import com.android.luggshare.common.keys.BundleKeys;
 import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.Claim.ClaimFragment;
 import com.android.luggshare.presentation.screens.cards.fragments.AddCardFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
+import com.android.luggshare.presentation.screens.tracking.fragments.fragment.TrackDeliveryFragment;
 import com.android.luggshare.utils.UiHelper;
 
 import androidx.core.content.ContextCompat;
@@ -72,6 +76,9 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
     @BindView(R.id.btnAcceptOffer)
     Button btnAcceptOffer;
 
+    @BindView(R.id.btnCancelOffer)
+    Button btnCancelOffer;
+
     @BindView(R.id.btnRate)
     Button btnRate;
 
@@ -80,6 +87,7 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
 
     GetUserProfileBundle getUserProfileBundle;
     ReceivedOfferBundle receivedOfferBundle;
+    ClaimBundle claimBundle;
 
     String TAG_RATE = "UserRatingNew";
 
@@ -109,6 +117,13 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
 
             btnRate.setVisibility(View.VISIBLE);
             btnRate.setEnabled(true);
+
+        }
+
+        if(receivedOfferBundle.getRequestObj().getOfferStatus().equalsIgnoreCase("COMPLETED")){
+
+            btnCancelOffer.setVisibility(View.INVISIBLE);
+            btnRate.setEnabled(false);
 
         }
         else {
@@ -195,6 +210,26 @@ public class MyReceivedOfferDetailsFragment extends CoreFragment {
                 Log.e("List", t.toString());
             }
         });
+
+
+    }
+
+    @OnClick(R.id.btnCancelOffer)
+    public void onClaimRiased() {
+
+        claimBundle =  new ClaimBundle();
+        claimBundle.setUserid(receivedOfferBundle.getRequestObj().getSenderPurchaserid());
+        claimBundle.setOfferid(receivedOfferBundle.getRequestObj().getOfferId());
+        claimBundle.setItem(receivedOfferBundle.getRequestObj().getItemName());
+        claimBundle.setDate(receivedOfferBundle.getRequestObj().getDelvDate());
+
+
+
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(BundleKeys.CLAIM, claimBundle);
+        replaceChildFragmentWithDelay(new ClaimFragment(), true, false, bundle, true);
+
 
 
     }

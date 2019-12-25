@@ -24,6 +24,7 @@ import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.activities.CoreActivity;
 import com.android.luggshare.presentation.application.CustomApplication;
 import com.android.luggshare.presentation.fragments.CoreFragment;
+import com.android.luggshare.presentation.screens.Claim.ClaimFragment;
 import com.android.luggshare.presentation.screens.Notifications.MyNotificationFragment;
 import com.android.luggshare.presentation.screens.cards.fragments.MyPaymentFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
@@ -31,6 +32,7 @@ import com.android.luggshare.presentation.screens.login.activities.LoginActivity
 import com.android.luggshare.presentation.screens.myoffers.fragments.MyOffersFragment;
 import com.android.luggshare.presentation.screens.myrequests.fragments.MyRequestFragment;
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
+import com.android.luggshare.presentation.screens.splash.FragmentPolicies;
 import com.android.luggshare.presentation.screens.tracking.fragments.fragment.MyTrackingFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -114,6 +116,11 @@ public class DashboardActivity extends CoreActivity implements CoreFragment.OnFr
                         break;
                     case R.id.nav_payment:
                         replaceChildFragmentWithDelay(R.id.content_area, new MyPaymentFragment(), true, false, null, true);
+                        break;
+
+
+                    case R.id.nav_policies:
+                        replaceChildFragmentWithDelay(R.id.content_area, new FragmentPolicies(), true, false, null, true);
                         break;
 
                     case R.id.nav_logout:

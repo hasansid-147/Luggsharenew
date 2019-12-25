@@ -51,6 +51,8 @@ public class TrackDeliveryFragment extends CoreFragment {
     RecyclerView rvUpdDelv;
     TrackingBundle trackingBundle;
     private MyTrackingAdapter mAdapter;
+
+
     TrackingListDetailBundle trackingListDetailBundle;
 
     @Override
@@ -73,6 +75,8 @@ public class TrackDeliveryFragment extends CoreFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        trackingListDetailBundle = new TrackingListDetailBundle();
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
 
@@ -203,8 +207,12 @@ public class TrackDeliveryFragment extends CoreFragment {
                 try {
 
                     TrackListResponse respObj = arrayList.get(position);
+                    Integer offerid = respObj.getOfferId().intValue();
+                    String reqtype = respObj.getReqTyp();
+                    String reqname = respObj.getDeliveryname();
+                    Integer uid = respObj.getTraveleruid();
 
-                    trackingListDetailBundle.setOfferId(respObj.getOfferId().intValue());
+                    trackingListDetailBundle.setOfferId(offerid);
                     trackingListDetailBundle.setReqTyp(respObj.getReqTyp());
                     trackingListDetailBundle.setDeliveryname(respObj.getDeliveryname());
                     trackingListDetailBundle.setTraveleruid(respObj.getTraveleruid());

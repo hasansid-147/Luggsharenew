@@ -2,6 +2,7 @@ package com.android.luggshare.presentation.screens.traveler.fragments;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,8 +38,13 @@ import com.android.luggshare.common.managers.PreferenceManager;
 import com.android.luggshare.presentation.fragments.CoreFragment;
 import com.android.luggshare.presentation.screens.dashboard.fragments.home.HomeFragment;
 import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragment;
+import com.android.luggshare.presentation.screens.purchaser.fragments.adapter.SliderAdapterExample;
 import com.android.luggshare.presentation.screens.traveler.adapters.TravelerListingAdapter;
 import com.android.luggshare.utils.UiHelper;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,8 +96,11 @@ public class TravelerListingDetailFragment extends CoreFragment {
     @BindView(R.id.rlUsername)
     RelativeLayout rlUsername;
 
-    @BindView(R.id.imgPackage)
-    ImageView imgPackage;
+    //@BindView(R.id.imgPackage)
+    //  ImageView imgPackage;
+
+    @BindView(R.id.imageSlider)
+    SliderView imageSlider;
 
     @BindView(R.id.btnSendOffer)
     Button btnSendOffer;
@@ -126,6 +135,30 @@ public class TravelerListingDetailFragment extends CoreFragment {
     }
 
     private void populateData(TravListingResponse travelerObj) {
+        ArrayList<String> images = new ArrayList<String>();
+
+        images.add(BASE_IMG_PATH + travelerObj.getImagename() + "?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        images.add(BASE_IMG_PATH + travelerObj.getImagename2() + "?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+
+
+        final SliderAdapterExample adapter = new SliderAdapterExample(images);
+
+        imageSlider.setSliderAdapter(adapter);
+
+        imageSlider.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        imageSlider.setSliderTransformAnimation(SliderAnimations.CUBEINROTATIONTRANSFORMATION);
+        //imageSlider.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        imageSlider.setIndicatorSelectedColor(Color.WHITE);
+        imageSlider.setIndicatorUnselectedColor(Color.GRAY);
+
+        //imageSlider.startAutoCycle();
+
+        imageSlider.setOnIndicatorClickListener(new DrawController.ClickListener() {
+            @Override
+            public void onIndicatorClicked(int position) {
+                imageSlider.setCurrentPagePosition(position);
+            }
+        });
 
         tvItemName.setText(travelerObj.getProdname());
         tvPickFrom.setText(travelerObj.getFrmlocation());
@@ -137,7 +170,7 @@ public class TravelerListingDetailFragment extends CoreFragment {
         tvUsername.setText(travelerObj.getUsername() + "");
         tvUrl.setText(travelerObj.getUrl()+ "");
         tvRate.setText("0");
-        UiHelper.setImageWithGlide(getActivity(), imgPackage, BASE_IMG_PATH + travelerObj.getImagename());
+        //UiHelper.setImageWithGlide(getActivity(), imgPackage, BASE_IMG_PATH + travelerObj.getImagename());
 
     }
 

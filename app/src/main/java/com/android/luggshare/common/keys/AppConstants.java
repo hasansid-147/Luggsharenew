@@ -140,6 +140,8 @@ public class AppConstants {
     public static final String KEY_USER_CITY = "city";
     public static final String KEY_USER_PROFIMAGE = "user_image";
 
-    public static final String BASE_IMG_PATH = "http://tnssuet.com.192-185-7-212.hgws27.hgwin.temp.domains/images/";
+    //public static final String BASE_IMG_PATH = "http://tnssuet.com.192-185-7-212.hgws27.hgwin.temp.domains/images/";
+
+    public static final String BASE_IMG_PATH = "http://luggshare-001-site1.htempurl.com/images/";
 
 }

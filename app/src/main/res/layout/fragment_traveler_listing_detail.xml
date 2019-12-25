@@ -3,73 +3,267 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
+
+    <LinearLayout
+        android:id="@+id/llImageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_240sdp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="6dp"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_240sdp"
+                    android:adjustViewBounds="true"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="left"
+                    app:sliderAutoCycleEnabled="false"
+                    app:sliderCircularHandlerEnabled="true"
+                    app:sliderIndicatorAnimationDuration="1500"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="5"
+                    app:sliderStartAutoCycle="true" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
+        android:layout_below="@+id/llImageContainer"
         android:background="@drawable/edittext_rounded_corners"
+        android:paddingLeft="@dimen/_8sdp"
+        android:paddingRight="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_10sdp">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rlItemName"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/imgPackage"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:divider="#b5b5b5"
+                android:dividerHeight="5dp">
 
 
-        <ImageView
-            android:id="@+id/imgPackage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerCrop" />
+                <TextView
+                    android:id="@+id/txtItemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Item Name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/imgPackage">
+                <TextView
+                    android:id="@+id/tvItemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtItemName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Item Name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/darker_gray" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlPickFrom"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/rlItemName"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:divider="#b5b5b5"
+                android:dividerHeight="5dp">
+
+
+                <TextView
+                    android:id="@+id/txtPickFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Pick From"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPickFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtPickFrom"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Location"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/darker_gray" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlDeliverTo"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/rlPickFrom"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:divider="#b5b5b5"
+                android:dividerHeight="5dp">
+
+
+                <TextView
+                    android:id="@+id/txtDeliverTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Deliver To"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvDeliverTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtDeliverTo"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Deliver To"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/darker_gray" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlurkl"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/rlPickFrom"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:divider="#b5b5b5"
+                android:dividerHeight="5dp">
+
+
+                <TextView
+                    android:id="@+id/txturl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Url //:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txturl"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="3dp"
+                    android:text="Deliver To"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="11sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/darker_gray" />
+
+
+            </RelativeLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:id="@+id/llPriceReward"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/rlDeliverTo"
+                android:weightSum="2">
 
                 <RelativeLayout
-                    android:id="@+id/rlItemName"
+                    android:id="@+id/rlReward"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/imgPackage"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:divider="#b5b5b5"
-                    android:dividerHeight="5dp">
-
+                    android:layout_weight="1">
 
                     <TextView
-                        android:id="@+id/txtItemName"
+                        android:id="@+id/txtReward"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:text="Item Name"
+                        android:text="Reward"
                         android:textColor="@color/colorBlack"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tvItemName"
+                        android:id="@+id/tvReward"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txtItemName"
+                        android:layout_below="@id/txtReward"
                         android:layout_alignParentStart="true"
                         android:layout_marginTop="3dp"
-                        android:text="Item Name"
+                        android:text="Reward"
                         android:textColor="@color/colorBlack"
                         android:textSize="14sp" />
 
@@ -79,445 +273,277 @@
                         android:layout_alignParentBottom="true"
                         android:background="@android:color/darker_gray" />
 
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rlPickFrom"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/rlItemName"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:divider="#b5b5b5"
-                    android:dividerHeight="5dp">
-
-
-                    <TextView
-                        android:id="@+id/txtPickFrom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="Pick From"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvPickFrom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txtPickFrom"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="3dp"
-                        android:text="Location"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp" />
-
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="@android:color/darker_gray" />
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rlDeliverTo"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/rlPickFrom"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:divider="#b5b5b5"
-                    android:dividerHeight="5dp">
-
-
-                    <TextView
-                        android:id="@+id/txtDeliverTo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="Deliver To"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvDeliverTo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txtDeliverTo"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="3dp"
-                        android:text="Deliver To"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="@android:color/darker_gray" />
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rlurkl"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/rlPickFrom"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:divider="#b5b5b5"
-                    android:dividerHeight="5dp">
-
-
-                    <TextView
-                        android:id="@+id/txturl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="Url //:"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvUrl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/txturl"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginTop="3dp"
-                        android:text="Deliver To"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="11sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="@android:color/darker_gray" />
-
-
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/llPriceReward"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_below="@id/rlDeliverTo"
-                    android:weightSum="2">
-
-                    <RelativeLayout
-                        android:id="@+id/rlReward"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txtReward"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="Reward"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvReward"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtReward"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="3dp"
-                            android:text="Reward"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@android:color/darker_gray" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlPrice"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txtPrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="Price"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvPrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtPrice"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginTop="3dp"
-                            android:text="Price"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
-
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llWieghtSize"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_below="@id/llPriceReward"
-                    android:weightSum="2">
-
-                    <RelativeLayout
-                        android:id="@+id/rlWeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txtWeight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="Weight"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvWeight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtWeight"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="3dp"
-                            android:text="Weight"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@android:color/darker_gray" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlSize"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txtSize"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="Size"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvSize"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtSize"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="3dp"
-                            android:text="Size"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
+                        android:background="@android:color/darker_gray" />
 
 
-                    </RelativeLayout>
+                </RelativeLayout>
 
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llNameRating"
+                <RelativeLayout
+                    android:id="@+id/rlPrice"
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_below="@id/llWieghtSize"
-                    android:weightSum="3">
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1">
 
-                    <RelativeLayout
-                        android:id="@+id/rlUsername"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txtUsername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="User Name"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvUsername"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtUsername"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="3dp"
-                            android:text="User Name"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:background="@android:color/darker_gray" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlrate"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_weight="2">
-
-                        <TextView
-                            android:id="@+id/txtRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:text="Rating"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtRate"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="3dp"
-                            android:text="Rating"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="@android:color/darker_gray" />
-
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/rlbtns"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_below="@id/llNameRating"
-                    android:weightSum="2">
-
-                    <Button
-                        android:id="@+id/btnChat"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/txtPrice"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Send Message"
-                        android:textColor="@color/white"
-                        android:visibility="visible" />
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Price"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
 
-                    <Button
-                        android:id="@+id/btnSendOffer"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        android:background="@color/colorPrimary"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Make Offer"
-                        android:textColor="@color/white"
-                        android:visibility="visible" />
+                        android:layout_below="@id/txtPrice"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="3dp"
+                        android:text="Price"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
 
 
-                </LinearLayout>
+                </RelativeLayout>
+
+
             </LinearLayout>
-        </ScrollView>
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/llWieghtSize"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/llPriceReward"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/rlWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txtWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Weight"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWeight"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="3dp"
+                        android:text="Weight"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/darker_gray" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txtSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Size"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtSize"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="3dp"
+                        android:text="Size"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llNameRating"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/llWieghtSize"
+                android:weightSum="3">
+
+                <RelativeLayout
+                    android:id="@+id/rlUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txtUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="User Name"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtUsername"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="3dp"
+                        android:text="User Name"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/darker_gray" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/txtRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Rating"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtRate"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="3dp"
+                        android:text="Rating"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/darker_gray" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rlbtns"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_below="@id/llNameRating"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Send Message"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btnSendOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Make Offer"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>

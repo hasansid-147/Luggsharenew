@@ -32,6 +32,7 @@ public class MyTrackingAdapter extends RecyclerView.Adapter<MyTrackingAdapter.My
             tvItemname = (TextView) view.findViewById(R.id.tvItemname);
             tvItemTyp = (TextView) view.findViewById(R.id.tvItemTyp);
 
+
             img_icon = (ImageView) view.findViewById(R.id.img_icon);
         }
     }
@@ -54,6 +55,7 @@ public class MyTrackingAdapter extends RecyclerView.Adapter<MyTrackingAdapter.My
         TrackListResponse movie = moviesList.get(position);
         holder.tvItemNamevalue.setText(movie.getDeliveryname());
         holder.tvItemTypvalue.setText(movie.getReqTyp());
+
     }
 
     @Override

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="18dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/txtCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_below="@+id/edtItemDescription"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:text="I want to claim insurance for my delivery of Item:"
+            android:textColor="@color/gray"
+            android:textStyle="bold|italic"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/edtCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint="Item name"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12sdp"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtCardNo"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_below="@+id/edtCardName"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="18dp"
+            android:text="which should be delivered on:"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/edtCardNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCardNo"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint="YYY-MM-DD"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtExpDatet"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_below="@+id/edtCardNo"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Amount for the Item was approxiamtely"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/edtSwift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtExpDatet"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:hint=""
+            android:inputType="numberDecimal"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/_5sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/txtCVV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtSwift"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="Detail if any:"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"/>
+
+        <EditText
+            android:id="@+id/textArea_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCVV"
+            android:background="@drawable/edittext_rounded_corners"
+            android:gravity="left"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:textSize="12sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:scrollHorizontally="false" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="35dp"
+        android:background="@color/colorPrimary"
+        android:text="SUBMIT"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>
+
+
+
+
+
+

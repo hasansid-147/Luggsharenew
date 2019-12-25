@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:paddingLeft="@dimen/_10sdp"
+        android:background="@color/colorPrimary"
+
+
+
+
+
+        >
+        <ImageView
+            android:id="@+id/splashscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_luggage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LuggShare"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_above="@+id/splashscreen"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/header"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="18dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/txtCardName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtItemDescription"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:text="Policies"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/edtCardName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:hint=""
+                android:imeOptions="actionNext"
+                android:scrollbars="vertical"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGrey" />
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+</RelativeLayout>
+
+
+
+
+
+

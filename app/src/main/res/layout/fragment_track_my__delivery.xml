@@ -5,38 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
+    android:padding="@dimen/_11sdp"
+
     android:orientation="vertical"
-    android:background="@color/white">
-
-    <LinearLayout
-        android:id="@+id/llTabContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:weightSum="3"
-        >
-
-        <TextView
-            android:id="@+id/tvSender"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:background="@drawable/border_curved"
-
-            android:textSize="@dimen/_12ssp"
-            android:text=""
-            />
+    android:background="@color/grey">
 
 
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrackDelv"
