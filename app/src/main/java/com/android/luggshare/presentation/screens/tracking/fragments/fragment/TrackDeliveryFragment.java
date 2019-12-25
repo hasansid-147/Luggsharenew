@@ -59,7 +59,6 @@ public class TrackDeliveryFragment extends CoreFragment {
     protected int getLayoutResourceId() {
         return R.layout.fragment_track_my__delivery;
 
-
     }
 
     public void onCreate(Bundle savedInstanceState) {
@@ -79,16 +78,8 @@ public class TrackDeliveryFragment extends CoreFragment {
         trackingListDetailBundle = new TrackingListDetailBundle();
 
         View rootview = super.onCreateView(inflater, container, savedInstanceState);
-
-
-
-        //trackingBundle =  new TrackingBundle();
         int uid = trackingBundle.getUid();
         int trackingas  = trackingBundle.getTrackingas();
-
-
-
-
         fetchListData(PreferenceManager.getInstance().getInt(KEY_CUSTOMER_ID), trackingas);
 
         return rootview;

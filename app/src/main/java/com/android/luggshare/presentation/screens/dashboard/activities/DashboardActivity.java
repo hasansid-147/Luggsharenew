@@ -35,9 +35,7 @@ import com.android.luggshare.presentation.screens.profile.fragments.ProfileFragm
 import com.android.luggshare.presentation.screens.splash.FragmentPolicies;
 import com.android.luggshare.presentation.screens.tracking.fragments.fragment.MyTrackingFragment;
 import com.google.android.material.navigation.NavigationView;
-
 import butterknife.BindView;
-
 import static com.android.luggshare.common.keys.PreferenceKeys.KEY_CUSTOMER_ID;
 
 public class DashboardActivity extends CoreActivity implements CoreFragment.OnFragmentInteractionListener{
